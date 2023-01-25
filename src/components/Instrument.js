@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Instrument = ({
   // key, name, id, description, image, category, price,
@@ -14,5 +15,11 @@ const Instrument = ({
     />
   </div>
 );
+
+Instrument.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 export default Instrument;
