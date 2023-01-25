@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Login from '../components/login';
-import Home from '../components/home';
+import Home from '../components/Home';
 // import ProtectedRoutes from '../components/ProtectedRoutes';
 
 const AppRoutes = () => (
