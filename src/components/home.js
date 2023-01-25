@@ -1,6 +1,5 @@
 import React from 'react';
 import Instrument from './Instrument';
-import {Link} from 'react-router-dom';
 
 const Home = () => {
   const dummyList = [
@@ -42,18 +41,15 @@ const Home = () => {
       <h3>Please select an instrument</h3>
 
       {dummyList.map((instrument) => (
-        // TODO: Navigate to the details page
-        <Link to='/login'>
-          <Instrument
-            key={instrument.id}
-            name={instrument.name}
-            id={instrument.id}
-            description={instrument.description}
-            image={instrument.image}
-            category={instrument.image}
-            price={instrument.image}
-          />
-        </Link>
+        <Instrument
+          key={instrument.id}
+          name={instrument.name}
+          id={instrument.id}
+          description={instrument.description}
+          image={instrument.image}
+          category={instrument.image}
+          price={instrument.image}
+        />
       ))}
     </div>
   );
