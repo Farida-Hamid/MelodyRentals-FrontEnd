@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Login from '../components/login';
+import Home from '../components/home';
 // import ProtectedRoutes from '../components/ProtectedRoutes';
 
 const AppRoutes = () => (
   <Routes>
-    {/* <Route path="/" element={<Home />} />
-      <Route path="/instrument_details/:id" element={<Instruments />} /> */}
+    <Route path="/" element={<Home />} />
+    {/* <Route path="/instrument_details/:id" element={<Instruments />} /> */}
     {/* <Route element={<ProtectedRoutes />}> */}
     {/*  <Route path="/add_instrument" element={<AddInstrument />} />
         <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
