@@ -39,6 +39,18 @@ const Home = () => {
     <div>
       <h1>🎵🎶🎼 INSTRUMENTS 🎵🎶🎼</h1>
       <h3>Please select an instrument</h3>
+
+      {dummyList.map((instrument) => (
+        <Instrument
+          key={instrument.id}
+          name={instrument.name}
+          id={instrument.id}
+          description={instrument.description}
+          image={instrument.image}
+          category={instrument.image}
+          price={instrument.image}
+        />
+      ))}
     </div>
   );
 };
