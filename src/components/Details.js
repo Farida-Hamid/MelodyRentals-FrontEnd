@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import React from 'react';
 
 const Details = () => {
@@ -24,6 +24,7 @@ const Details = () => {
         {price}
         $
       </p>
+      <Link to="/login"><div>Reserve</div></Link>
     </div>
   );
 };
