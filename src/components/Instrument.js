@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Instrument = ({
   // key, name, id, description, image, category, price,
-  name, description, image,
+  name, id, description, image,
 }) => (
   // TODO: Change the link to navigate to
-  <Link to="/login">
+  <Link to="/details/{id}" state={{id}} >
     <div>
       <h2>{name}</h2>
       <>.........</>
