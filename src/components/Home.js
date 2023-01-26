@@ -47,8 +47,8 @@ const Home = () => {
           id={instrument.id}
           description={instrument.description}
           image={instrument.image}
-          category={instrument.image}
-          price={instrument.image}
+          category={instrument.category}
+          price={instrument.price}
         />
       ))}
     </div>
