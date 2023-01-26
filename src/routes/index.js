@@ -1,6 +1,6 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Login from "../components/login";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Login from '../components/login';
 // import ProtectedRoutes from '../components/ProtectedRoutes';
 
 const AppRoutes = () => (
