@@ -1,6 +1,6 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+// import React from 'react';
+// import { Navigate, Outlet } from 'react-router-dom';
 
-const ProtectedRoutes = () => (isTokenset() ? <Outlet /> : <Navigate to="/login" />);
+// const ProtectedRoutes = () => (isTokenset() ? <Outlet /> : <Navigate to="/login" />);
 
-export default ProtectedRoutes;
+// export default ProtectedRoutes;
