@@ -14,9 +14,24 @@ const auth_login = () => {
   axios.post(API_URL, loginPayload)
     .then(response => {
       const token = response.headers.get("Authorization");
-      console.log("token is =>", JSON.stringify(token));
+      //set JWT token to local
+      localStorage.setItem("token", token);
+
+      //set token to axios common header
+      setAuthToken(token);
+      
+      //redirect user to home page
+      // window.location.href = '/'
     })
     .catch(err => console.log(err));
+
+    const setAuthToken = token => {
+      if (token) {
+          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      }
+      else
+          delete axios.defaults.headers.common["Authorization"];
+   }
 };
 
 export default auth_login;
