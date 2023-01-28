@@ -6,22 +6,32 @@ const auth_login = () => {
   // If you ran the seed file from the BackEnd project, you will have the user loginPayload.
   const loginPayload = {
     "user": {
-      "username": "admin",
-      "name": "Admin",
       "email": "admin@localhost",
       "password": "password",
-      "password_confirmation": "password"
     }
   };
 
   axios.post(API_URL, loginPayload)
     .then(response => {
-      //get token from response
-      // const token  =  response.headers.token;
-      console.log("response is =>", (response));
-      // console.log("token is =>", token);
+      const token = response.headers.get("Authorization");
+      //set JWT token to local
+      localStorage.setItem("token", token);
+
+      //set token to axios common header
+      setAuthToken(token);
+      
+      //redirect user to home page
+      // window.location.href = '/'
     })
     .catch(err => console.log(err));
+
+    const setAuthToken = token => {
+      if (token) {
+          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      }
+      else
+          delete axios.defaults.headers.common["Authorization"];
+   }
 };
 
 export default auth_login;

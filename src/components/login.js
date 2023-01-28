@@ -2,7 +2,9 @@ import React from "react";
 import auth_login from "../api/auth";
 
 const Login = () => {
-  const token = auth_login();
+  auth_login();
+  const token = localStorage.getItem("token");
+  console.log('token read from local storage', token);
 
   return (
     <div>
