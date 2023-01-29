@@ -1,9 +1,10 @@
 /* eslint-disable import/extensions */
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Login from '../components/login';
-import Home from '../components/Home';
-import Details from '../components/Details';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Login from "../components/login";
+import Home from "../components/Home";
+import Details from "../components/Details";
+import Signup from "../components/Signup";
 // import ProtectedRoutes from '../components/ProtectedRoutes';
 
 const AppRoutes = () => (
@@ -16,6 +17,8 @@ const AppRoutes = () => (
     {/* <Route path="/rentals" element={<Rentals />} /> */}
     {/* </Route> */}
     <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
+
     {/* <Route path="/signup" element={<Signup />} /> */}
   </Routes>
 );
