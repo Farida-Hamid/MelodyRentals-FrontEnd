@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import axios from "axios";
 
 // Action types
 const READ = 'instruments/READ';
@@ -27,10 +26,9 @@ export const recieveInstruments = () => async (dispatch) => {
     .then((res) => res.json())
     .then((instruments) => {
       const instrumentsList = instruments;
-      console.log('at redux',instrumentsList);
       dispatch(read(instrumentsList));
       return instrumentsList;
     });
-  };
+};
 
 export default instrumentsReducer;

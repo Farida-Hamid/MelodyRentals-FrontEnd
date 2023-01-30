@@ -1,37 +1,17 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Login from '../components/login';
 import Home from '../components/Home';
 import Details from '../components/Details';
 // import ProtectedRoutes from '../components/ProtectedRoutes';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import axios from "axios";
-import { recieveInstruments } from '../api/Redux/instruments';
+import { recieveInstruments } from '../Redux/instruments';
 
 const AppRoutes = () => {
   const instrumentsList = useSelector((state) => state.instruments);
   const dispatch = useDispatch();
-  // const [Instruments, setInstruments] = React.useState([]);
 
-
-console.log("instruments at routes", instrumentsList);
-
-  // const fetch = () =>{
-  //   axios.get(API_URL)
-  //   .then(response => {
-  //     // const token = response.headers.get("Authorization");
-  //     console.log(response.data);
-  //     setInstruments(response.data[0]);
-  //   })
-  //   .catch(err => console.log(err));
-  // }
-  // if (Instruments.length === 0) {
-
-  // useEffect(() => async () => {
-  //   await dispatch(fetch());
-  // }, []);}
   const loader = async () => {
     dispatch(recieveInstruments());
   };
@@ -39,25 +19,26 @@ console.log("instruments at routes", instrumentsList);
   if (instrumentsList.length === 0) {
     loader();
   }
-return (
-  <main>
-        {instrumentsList.length ? (
+  return (
+    <main>
+      {instrumentsList.length ? (
 
-  <Routes>
-    <Route path="/" element={<Home instruments={instrumentsList}/>} />
-    {/* <Route path="/" element={<Home/>} /> */}
-    <Route path="/details/:id" element={<Details />} />
-    {/* <Route element={<ProtectedRoutes />}> */}
-    {/*  <Route path="/add_instrument" element={<AddInstrument />} />
+        <Routes>
+          <Route path="/" element={<Home instruments={instrumentsList} />} />
+          {/* <Route path="/" element={<Home/>} /> */}
+          <Route path="/details/:id" element={<Details />} />
+          {/* <Route element={<ProtectedRoutes />}> */}
+          {/*  <Route path="/add_instrument" element={<AddInstrument />} />
         <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
-    {/* <Route path="/rentals" element={<Rentals />} /> */}
-    {/* </Route> */}
-    <Route path="/login" element={<Login />} />
-    {/* <Route path="/signup" element={<Signup />} /> */}
-  </Routes>
-  ) : ''}
+          {/* <Route path="/rentals" element={<Rentals />} /> */}
+          {/* </Route> */}
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/signup" element={<Signup />} /> */}
+        </Routes>
+      ) : ''}
 
     </main>
-);}
+  );
+};
 
 export default AppRoutes;

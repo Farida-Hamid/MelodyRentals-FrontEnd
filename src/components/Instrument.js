@@ -6,25 +6,24 @@ const Instrument = ({
   // name, id, description, image, category, price,
   name, id, description, category, price,
 }) => {
-
   console.log(name, id, description, category, price);
   return (
-  <Link
-    to="/details/{id}"
-    state={{
+    <Link
+      to="/details/{id}"
+      state={{
       // name, id, description, image, category, price,
-      name, id, description, category, price,
-    }}
-  >
-    <div>
-      <h2>{name}</h2>
-      <>.........</>
-      <p>{description}</p>
-      {/* <img src={image} alt={name} /> */}
-    </div>
-  </Link>
-);
-}
+        name, id, description, category, price,
+      }}
+    >
+      <div>
+        <h2>{name}</h2>
+        <>.........</>
+        <p>{description}</p>
+        {/* <img src={image} alt={name} /> */}
+      </div>
+    </Link>
+  );
+};
 
 Instrument.propTypes = {
   name: PropTypes.string.isRequired,
