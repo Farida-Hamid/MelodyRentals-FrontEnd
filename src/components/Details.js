@@ -4,24 +4,29 @@ import React from 'react';
 const Details = () => {
   const location = useLocation();
   const {
-    name, description, image, category, price,
+    instrument,
+    // name, description, image, category, price,
   } = location.state;
 
   return (
     <div>
       <h1>
         Details page for
-        {name}
+        {' '}
+        {instrument.name}
       </h1>
-      <img src={image} alt={name} />
-      <p>{description}</p>
+      <img src={instrument.image} alt={instrument.name} />
+      <p>{instrument.description}</p>
       <p>
         Category:
-        {category}
+        {' '}
+        {instrument.category}
       </p>
       <p>
         Price/day:
-        {price}
+        {' '}
+        {instrument.price}
+        {' '}
         $
       </p>
       <Link to="/login"><div>Reserve</div></Link>
