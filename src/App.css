@@ -37,3 +37,31 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  overflow-x: hidden;
+}
+
+.logo {
+  width: 220px;
+  height: 220px;
+  margin-left: -1rem;
+  margin-bottom: 3rem;
+}
+
+.active {
+  background-color: #97bf0f;
+  color: white;
+}
+
+a {
+  color: black;
+}
+
+.fa-brands {
+  font-size: 24px;
+}
+
+.mobile-nav-bar {
+  display: none;
+}
