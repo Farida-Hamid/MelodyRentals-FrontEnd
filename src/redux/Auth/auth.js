@@ -1,5 +1,50 @@
-const POST_USER = "POST_USER";
-const url = "http://127.0.0.1:3000/api/v1/auth/signup";
+const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+const LOGIN_FAIL = "LOGIN_FAIL";
+const LOGOUT = "LOGOUT";
+const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+const REGISTER_FAIL = "REGISTER_FAIL";
+
+const initialState = {
+  token: localStorage.getItem("token"),
+  isAuthenticated: null,
+  loading: false,
+  user: null,
+};
+
+const authReducer = (state = initialState, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case LOGIN_SUCCESS:
+      localStorage.setItem("token", payload.token);
+      return {
+        ...state,
+        ...payload,
+        isAuthenticated: true,
+        loading: false,
+      };
+    case REGISTER_SUCCESS:
+      localStorage.setItem("token", payload.token);
+      return {
+        ...state,
+        ...payload,
+        isAuthenticated: true,
+        loading: false,
+      };
+    case LOGIN_FAIL:
+    case LOGOUT:
+    case REGISTER_FAIL:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
 
 // export const postUser = (user) => async (dispatch) => {
 //   const response = await axios.post(url, user);
@@ -18,49 +63,3 @@ const url = "http://127.0.0.1:3000/api/v1/auth/signup";
 //     payload: data[0],
 //   });
 // };
-
-import axios from "axios";
-
-const END_POINT = "https://lunar-hotel-backend.herokuapp.com/";
-const API_ROUTE = "/api/v1/";
-
-// create an endoint for the api using the url and fetching the data
-export const api = axios.create({
-  baseURL: `${END_POINT}${API_ROUTE}`,
-  // add the authorization header to the request
-  headers: {
-    Authorization: `${localStorage.getItem("token")}`,
-  },
-});
-
-export const baseApi = axios.create({
-  baseURL: `${END_POINT}`,
-});
-
-// function that allows a user to register
-export const signup = async (user) => {
-  const response = await baseApi.post("/users/signup", { user });
-  const authToken = response.headers.authorization;
-  const currentUser = response.data;
-  localStorage.setItem("token", authToken);
-
-  return { authToken, currentUser };
-};
-
-export const login = async (user) => {
-  const response = await baseApi.post("/users/login", { user });
-  const authToken = response.headers.authorization;
-  const currentUser = response.data;
-
-  localStorage.setItem("token", authToken);
-  return { authToken, currentUser };
-};
-
-export const logout = async () => {
-  const token = localStorage.getItem("token");
-  await baseApi.delete("/users/logout", {
-    headers: {
-      Authorization: `${token}`,
-    },
-  });
-};
