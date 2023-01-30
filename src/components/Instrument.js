@@ -2,31 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Instrument = ({
-  name, id, description, image, category, price,
-}) => (
-  <Link
-    to="/details/{id}"
-    state={{
-      name, id, description, image, category, price,
-    }}
-  >
+const Instrument = ({ instrument }) => (
+  <Link to="/details/{id}" state={{ instrument }}>
     <div>
-      <h2>{name}</h2>
+      <h2>{instrument.name}</h2>
       <>.........</>
-      <p>{description}</p>
-      <img src={image} alt={name} />
+      <p>{instrument.description}</p>
+      <img src={instrument.image} alt={instrument.name} />
     </div>
   </Link>
 );
 
 Instrument.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  id: PropTypes.number.isRequired,
+  instrument: PropTypes.objectOf(PropTypes.oneOfType(
+    [PropTypes.number, PropTypes.string, PropTypes.bool],
+  )).isRequired,
 };
 
 export default Instrument;
