@@ -1,3 +1,6 @@
+import { login, logout, signup } from "../../api/api";
+import Login from "../../components/login";
+
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGIN_FAIL = "LOGIN_FAIL";
 const LOGOUT = "LOGOUT";
@@ -44,6 +47,57 @@ const authReducer = (state = initialState, action) => {
     default:
       return state;
   }
+};
+
+export default authReducer;
+
+export const userLogin = (email, password) => async (dispatch) => {
+  try {
+    const user = {
+      email,
+      password,
+    };
+    login(user, dispatch, LOGIN_SUCCESS);
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: LOGIN_FAIL,
+    });
+  }
+};
+
+export const userRegister =
+  (username, name, email, password, password_confirmation) =>
+  async (dispatch) => {
+    try {
+      const user = {
+        username,
+        name,
+        email,
+        password,
+        password_confirmation,
+      };
+      signup(user, dispatch, REGISTER_SUCCESS);
+    } catch (err) {
+      const errors = err.response.data.errors;
+
+      if (errors) {
+        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+      }
+
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+    }
+  };
+
+export const logoutUser = () => (dispatch) => {
+  logout(dispatch, LOGOUT);
 };
 
 // export const postUser = (user) => async (dispatch) => {

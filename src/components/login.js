@@ -1,5 +1,5 @@
 import React from "react";
-import auth_login from "../api/auth";
+import auth_login from "../api/api";
 
 const Login = () => {
   auth_login();

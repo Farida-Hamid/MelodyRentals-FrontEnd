@@ -53,29 +53,30 @@ export const baseApi = axios.create({
 });
 
 // function that allows a user to register
-export const signup = async (user) => {
-  const response = await baseApi.post("/auth/signup", { user });
+export const signup = async (user, dispatch, type) => {
+  const response = await baseApi.post("/auth/signup", user);
   const authToken = response.headers.authorization;
   const currentUser = response.data;
   localStorage.setItem("token", authToken);
-
+  dispatch({ type, payload: currentUser });
   return { authToken, currentUser };
 };
 
-export const login = async (user) => {
-  const response = await baseApi.post("/auth/login", { user });
+export const login = async (user, dispatch, type) => {
+  const response = await baseApi.post("/auth/login", user);
   const authToken = response.headers.authorization;
   const currentUser = response.data;
-
   localStorage.setItem("token", authToken);
+  dispatch({ type, payload: currentUser });
   return { authToken, currentUser };
 };
 
-export const logout = async () => {
+export const logout = async (dispatch, type) => {
   const token = localStorage.getItem("token");
   await baseApi.delete("/auth/logout", {
     headers: {
       Authorization: `${token}`,
     },
   });
+  dispatch({ type });
 };
