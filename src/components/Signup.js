@@ -22,6 +22,7 @@ export default function SignUpForm() {
   const classes = useStyles();
   const [values, setValues] = useState({
     name: "",
+    username: "",
     email: "",
     password: "",
     passwordconfirm: "",
@@ -29,7 +30,13 @@ export default function SignUpForm() {
 
   // form values
   const handleChange = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.value });
+    // setValues({ ...values, [name]: event.target.value });
+    setValues((prevData) => {
+      return {
+        ...prevData,
+        [name]: event.target.value,
+      };
+    });
   };
 
   //after form submit data
@@ -38,6 +45,7 @@ export default function SignUpForm() {
 
     const user = {
       name: values.name,
+      username: values.username,
       email: values.email,
       password: values.password,
       passwordconfirm: values.passwordconfirm,
@@ -58,6 +66,14 @@ export default function SignUpForm() {
         className={classes.textField}
         value={values.name}
         onChange={handleChange("name")}
+        margin="normal"
+      />
+      <TextField
+        id="username"
+        label="Username"
+        className={classes.textField}
+        value={values.username}
+        onChange={handleChange("username")}
         margin="normal"
       />
       <br />
@@ -85,8 +101,8 @@ export default function SignUpForm() {
         label="Confirm Password"
         className={classes.textField}
         type="password"
-        value={values.password}
-        onChange={handleChange("password-confirm")}
+        value={values.passwordconfirm}
+        onChange={handleChange("passwordconfirm")}
         margin="normal"
       />
       <br />
