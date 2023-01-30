@@ -6,8 +6,8 @@ const auth_login = () => {
   // If you ran the seed file from the BackEnd project, you will have the user loginPayload.
   const loginPayload = {
     user: {
-      email: "meshu@gmail.com",
-      password: "123456",
+      email: "tracy@gmail.com",
+      password: "12345678",
     },
   };
 

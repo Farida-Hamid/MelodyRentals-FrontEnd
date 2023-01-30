@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div>
       Login page
-      <h1>token</h1>
+      <h1>{token}</h1>
     </div>
   );
 };

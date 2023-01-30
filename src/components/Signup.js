@@ -27,8 +27,21 @@ export default function SignUpForm() {
     passwordconfirm: "",
   });
 
+  // form values
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
+  };
+
+  //after form submit data
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const user = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      passwordconfirm: values.passwordconfirm,
+    };
   };
 
   return (
