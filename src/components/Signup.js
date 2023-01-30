@@ -42,10 +42,16 @@ export default function SignUpForm() {
       password: values.password,
       passwordconfirm: values.passwordconfirm,
     };
+    console.log(user);
   };
 
   return (
-    <form className={classes.container} noValidate autoComplete="off">
+    <form
+      className={classes.container}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
       <TextField
         id="name"
         label="Name"
@@ -84,10 +90,14 @@ export default function SignUpForm() {
         margin="normal"
       />
       <br />
-      <Button variant="contained" color="primary" className={classes.button}>
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        className={classes.button}
+      >
         Sign Up
       </Button>
-      <Button>{values.name}</Button>
     </form>
   );
 }
