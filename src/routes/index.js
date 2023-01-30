@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Login from "../components/login";
+// import Login from "../components/Login";
 import Home from "../components/Home";
 import Details from "../components/Details";
 import Signup from "../components/Signup";
@@ -16,7 +16,7 @@ const AppRoutes = () => (
         <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
     {/* <Route path="/rentals" element={<Rentals />} /> */}
     {/* </Route> */}
-    <Route path="/login" element={<Login />} />
+    {/* <Route path="/login" element={<Login />} /> */}
     <Route path="/signup" element={<Signup />} />
 
     {/* <Route path="/signup" element={<Signup />} /> */}

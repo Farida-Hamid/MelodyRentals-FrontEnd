@@ -37,27 +37,32 @@
 
 import axios from "axios";
 
-const END_POINT = "localhost:3000/api/v1/";
+const END_POINT = "http://localhost:3000/api/v1";
 
 // create an endoint for the api using the url and fetching the data
-export const api = axios.create({
-  baseURL: `${END_POINT}`,
-  // add the authorization header to the request
-  headers: {
-    Authorization: `${localStorage.getItem("token")}`,
-  },
-});
+// export const api = axios.create({
+//   baseURL: `${END_POINT}`,
+//   // add the authorization header to the request
+//   headers: {
+//     Authorization: `${localStorage.getItem("token")}`,
+//   },
+// });
 
 export const baseApi = axios.create({
   baseURL: `${END_POINT}`,
 });
 
 // function that allows a user to register
-export const signup = async (user, dispatch, type) => {
-  const response = await baseApi.post("/auth/signup", user);
+export const signup = async (newuser, dispatch, type) => {
+  // var tmp = "user";
+  const userobj = { user: newuser };
+  const response = await baseApi.post("/auth/signup", userobj);
   const authToken = response.headers.authorization;
+  console.log(authToken);
   const currentUser = response.data;
+  console.log(currentUser);
   localStorage.setItem("token", authToken);
+
   dispatch({ type, payload: currentUser });
   return { authToken, currentUser };
 };

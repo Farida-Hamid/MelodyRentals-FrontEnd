@@ -1,5 +1,5 @@
 import { login, logout, signup } from "../../api/api";
-import Login from "../../components/login";
+// import Login from "../../components/Login";
 
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGIN_FAIL = "LOGIN_FAIL";
@@ -71,30 +71,20 @@ export const userLogin = (email, password) => async (dispatch) => {
   }
 };
 
-export const userRegister =
-  (username, name, email, password, password_confirmation) =>
-  async (dispatch) => {
-    try {
-      const user = {
-        username,
-        name,
-        email,
-        password,
-        password_confirmation,
-      };
-      signup(user, dispatch, REGISTER_SUCCESS);
-    } catch (err) {
-      const errors = err.response.data.errors;
+export const userRegister = (user) => (dispatch) => {
+  try {
+    signup(user, dispatch, REGISTER_SUCCESS);
+  } catch (err) {
+    const errors = err.response.data.errors;
 
-      if (errors) {
-        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-      }
+    //
+    console.log(errors);
 
-      dispatch({
-        type: REGISTER_FAIL,
-      });
-    }
-  };
+    dispatch({
+      type: REGISTER_FAIL,
+    });
+  }
+};
 
 export const logoutUser = () => (dispatch) => {
   logout(dispatch, LOGOUT);
