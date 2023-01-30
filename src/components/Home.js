@@ -19,9 +19,9 @@ const Home = ({ instruments }) => {
 };
 
 Home.propTypes = {
-  instruments: PropTypes.arrayOf(PropTypes.oneOfType(
-    [PropTypes.number, PropTypes.string],
-  )).isRequired,
+  instruments: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.oneOfType(
+    [PropTypes.number, PropTypes.string, PropTypes.bool],
+  ))).isRequired,
 };
 
 export default Home;

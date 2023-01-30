@@ -15,7 +15,7 @@ const Instrument = ({ instrument }) => (
 
 Instrument.propTypes = {
   instrument: PropTypes.objectOf(PropTypes.oneOfType(
-    [PropTypes.number, PropTypes.string],
+    [PropTypes.number, PropTypes.string, PropTypes.bool],
   )).isRequired,
 };
 
