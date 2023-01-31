@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { useDispatch } from "react-redux";
-import { userRegister } from "../redux/Auth/auth";
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { useDispatch } from 'react-redux';
+import { userRegister } from '../redux/Auth/auth';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    display: "flex",
-    flexWrap: "wrap",
+    display: 'flex',
+    flexWrap: 'wrap',
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -23,33 +23,21 @@ const useStyles = makeStyles((theme) => ({
 const Signup = () => {
   const classes = useStyles();
   const [values, setValues] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
+    name: '',
+    username: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
   });
 
   const dispatch = useDispatch();
 
-  // form values
-  // const handleChange = (event) => {
-  //   setValues( ...values, [name]: event.target.value });
-  //   // setValues((prevData) => {
-  //   //   return {
-  //   //     ...prevData,
-  //   //     [event.target.name]: event.target.value,
-  //   //   };
-  //   // });
-  // };
-
-  //after form submit data
+  // after form submit data
   const handleSubmit = (e) => {
     e.preventDefault();
-
     dispatch(userRegister(values));
   };
-  console.log(values);
+
   return (
     <form
       className={classes.container}
@@ -63,9 +51,7 @@ const Signup = () => {
         name="name"
         className={classes.textField}
         value={values.name}
-        onChange={(e) =>
-          setValues({ ...values, [e.target.name]: e.target.value })
-        }
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
         margin="normal"
       />
       <TextField
@@ -74,9 +60,7 @@ const Signup = () => {
         name="username"
         className={classes.textField}
         value={values.username}
-        onChange={(e) =>
-          setValues({ ...values, [e.target.name]: e.target.value })
-        }
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
         margin="normal"
       />
       <br />
@@ -86,9 +70,7 @@ const Signup = () => {
         name="email"
         className={classes.textField}
         value={values.email}
-        onChange={(e) =>
-          setValues({ ...values, [e.target.name]: e.target.value })
-        }
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
         margin="normal"
       />
       <br />
@@ -99,9 +81,7 @@ const Signup = () => {
         className={classes.textField}
         type="password"
         value={values.password}
-        onChange={(e) =>
-          setValues({ ...values, [e.target.name]: e.target.value })
-        }
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
         margin="normal"
       />
       <br />
@@ -112,9 +92,7 @@ const Signup = () => {
         className={classes.textField}
         type="password"
         value={values.password_confirmation}
-        onChange={(e) =>
-          setValues({ ...values, [e.target.name]: e.target.value })
-        }
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
         margin="normal"
       />
       <br />

@@ -1,47 +1,45 @@
-import { login, logout, signup } from "../../api/api";
-// import Login from "../../components/Login";
+import { login, logout, signup } from '../../api/api';
+// import { useNavigate } from "react-router-dom";
 
-const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-const LOGIN_FAIL = "LOGIN_FAIL";
-const LOGOUT = "LOGOUT";
-const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-const REGISTER_FAIL = "REGISTER_FAIL";
+const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+const LOGIN_FAIL = 'LOGIN_FAIL';
+const LOGOUT = 'LOGOUT';
+const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+const REGISTER_FAIL = 'REGISTER_FAIL';
 
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem('token'),
   isAuthenticated: null,
   loading: false,
   user: null,
 };
 
 const authReducer = (state = initialState, action) => {
-  const { type, payload } = action;
-
+  const { type } = action;
   switch (type) {
     case LOGIN_SUCCESS:
-      localStorage.setItem("token", payload.token);
       return {
         ...state,
-        ...payload,
-        isAuthenticated: true,
-        loading: false,
-      };
-    case REGISTER_SUCCESS:
-      localStorage.setItem("token", payload.token);
-      return {
-        ...state,
-        ...payload,
         isAuthenticated: true,
         loading: false,
       };
     case LOGIN_FAIL:
     case LOGOUT:
-    case REGISTER_FAIL:
-      localStorage.removeItem("token");
       return {
         ...state,
-        token: null,
         isAuthenticated: false,
+        loading: false,
+      };
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        isRegistered: true,
+        loading: false,
+      };
+    case REGISTER_FAIL:
+      return {
+        ...state,
+        isRegistered: false,
         loading: false,
       };
     default:
@@ -51,20 +49,28 @@ const authReducer = (state = initialState, action) => {
 
 export default authReducer;
 
-export const userLogin = (email, password) => async (dispatch) => {
+export const setCurrentUser = (payload) => ({
+  type: LOGIN_SUCCESS,
+  payload,
+});
+
+export const userLogin = (email, password, navigate) => async (dispatch) => {
   try {
     const user = {
       email,
       password,
     };
-    login(user, dispatch, LOGIN_SUCCESS);
+    const response = login(user);
+    localStorage.setItem('token', (await response).authToken);
+    localStorage.setItem('user', (await response).currentUser);
+    dispatch(setCurrentUser(response));
+    navigate('/');
   } catch (err) {
-    const errors = err.response.data.errors;
-
+    // TODO
+    const { errors } = err.response.data;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
     }
-
     dispatch({
       type: LOGIN_FAIL,
     });
@@ -73,13 +79,11 @@ export const userLogin = (email, password) => async (dispatch) => {
 
 export const userRegister = (user) => (dispatch) => {
   try {
-    signup(user, dispatch, REGISTER_SUCCESS);
+    dispatch({
+      type: REGISTER_SUCCESS,
+    });
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    //
-    console.log(errors);
-
+    // const { errors } = err.response.data;
     dispatch({
       type: REGISTER_FAIL,
     });
@@ -89,21 +93,3 @@ export const userRegister = (user) => (dispatch) => {
 export const logoutUser = () => (dispatch) => {
   logout(dispatch, LOGOUT);
 };
-
-// export const postUser = (user) => async (dispatch) => {
-//   const response = await axios.post(url, user);
-//   dispatch({
-//     type: POST_USER,
-//     payload: response.data,
-//   });
-// };
-
-// // Post user action
-// export const postUser = () => async (dispatch) => {
-//   const { data } = await axios.post("http://127.0.0.1:3000/api/messages");
-//   console.log(data);
-//   dispatch({
-//     type: "POST_USER",
-//     payload: data[0],
-//   });
-// };
