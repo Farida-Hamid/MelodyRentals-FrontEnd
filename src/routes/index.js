@@ -7,7 +7,7 @@ import Details from "../components/Details";
 import Signup from "../components/Signup";
 import Login from "../components/Login";
 // import ProtectedRoutes from '../components/ProtectedRoutes';
-import { recieveInstruments } from "../redux/instruments";
+import { recieveInstruments } from '../redux/instruments';
 
 const AppRoutes = () => {
   const instrumentsList = useSelector((state) => state.instruments);
@@ -36,7 +36,7 @@ const AppRoutes = () => {
           <Route path="/signup" element={<Signup />} />
         </Routes>
       ) : (
-        ""
+        ''
       )}
     </main>
   );

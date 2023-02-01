@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Instrument = ({ instrument }) => (
-  <Link to="/details/{id}" state={{ instrument }}>
-    <div>
-      <h2>{instrument.name}</h2>
-      <>.........</>
-      <p>{instrument.description}</p>
-      <img src={instrument.image} alt={instrument.name} />
+  <div className="card border-light">
+    <div className="card-body">
+      <Link to="/details/{id}" state={{ instrument }}>
+        <h2 className="card-title text-center text-decoration-none">{instrument.name}</h2>
+      </Link>
+      <p className="text-muted fw-bold text-center">.........</p>
+      <p className="card-text card-desc ">{instrument.description}</p>
     </div>
-  </Link>
+    <img src={instrument.image} alt={instrument.name} />
+  </div>
 );
 
 Instrument.propTypes = {
-  instrument: PropTypes.objectOf(PropTypes.oneOfType(
-    [PropTypes.number, PropTypes.string, PropTypes.bool],
-  )).isRequired,
+  instrument: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
+  ).isRequired,
 };
 
 export default Instrument;
