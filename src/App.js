@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import AppRoutes from './routes';
-import store from './Redux/store';
+import store from './redux/store';
 import NavBar from './components/navbar/NavBar';
 import './media-queries/Small.css';
 import './media-queries/Large.css';

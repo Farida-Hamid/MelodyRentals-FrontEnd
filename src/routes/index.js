@@ -6,7 +6,7 @@ import Login from '../components/login';
 import Home from '../components/Home';
 import Details from '../components/Details';
 // import ProtectedRoutes from '../components/ProtectedRoutes';
-import { recieveInstruments } from '../Redux/instruments';
+import { recieveInstruments } from '../redux/instruments';
 
 const AppRoutes = () => {
   const instrumentsList = useSelector((state) => state.instruments);
