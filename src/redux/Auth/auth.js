@@ -78,6 +78,7 @@ export const userLogin = (email, password, navigate) => async (dispatch) => {
 
 export const userRegister = (user) => (dispatch) => {
   try {
+    signup(user);
     dispatch({
       type: REGISTER_SUCCESS,
     });
