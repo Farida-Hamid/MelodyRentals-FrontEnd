@@ -1,19 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus,
-} from 'react-icons/fa';
+import { FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus } from 'react-icons/fa';
 import Logo from '../img/Logos.png';
 
 const NavBar = () => (
-  // const navigate = useNavigate();
-
-  // const handleClick = () => {
-  //   navigate('/');
-  //   localStorage.clear();
-  //   window.location.reload();
-  // };
-
   <div className="nav-side-bar">
     <div className="container-fluid">
       <div className="row flex-nowrap">
@@ -31,7 +21,7 @@ const NavBar = () => (
 
             <div className="container-fluid nav-link mb-1">
               <NavLink
-                to="#"
+                to="/reserve"
                 className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none"
               >
                 <span className="fs-5 d-none d-sm-inline ms-4 fw-bold">RESERVE</span>
@@ -40,7 +30,7 @@ const NavBar = () => (
 
             <div className="container-fluid nav-link mb-1">
               <NavLink
-                to="#"
+                to="/my-reservations"
                 className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none"
               >
                 <span className="fs-5 d-none d-sm-inline ms-4 fw-bold">MY RESERVATIONS</span>
@@ -49,7 +39,7 @@ const NavBar = () => (
 
             <div className="container-fluid nav-link mb-1">
               <NavLink
-                to="#"
+                to="/add-instrument"
                 className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none"
               >
                 <span className="fs-5 d-none d-sm-inline ms-4 fw-bold">ADD Instrument</span>
@@ -58,7 +48,7 @@ const NavBar = () => (
 
             <div className="container-fluid nav-link mb-1">
               <NavLink
-                to="#"
+                to="/delete"
                 className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none"
               >
                 <span className="fs-5 d-none d-sm-inline ms-4 fw-bold">DELETE Instrument</span>
@@ -66,13 +56,7 @@ const NavBar = () => (
             </div>
 
             <div className="container-fluid nav-link mt-2 ms-4">
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={() => {
-                  handleClick();
-                }}
-              >
+              <button type="button" className="btn btn-danger">
                 Logout
               </button>
             </div>

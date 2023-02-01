@@ -76,13 +76,7 @@ const MobileNavBar = () => (
             </div>
 
             <div className="container-fluid nav-link mt-1 ms-3">
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={() => {
-                  handleClick();
-                }}
-              >
+              <button type="button" className="btn btn-danger">
                 Logout
               </button>
             </div>

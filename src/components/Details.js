@@ -12,24 +12,23 @@ const Details = () => {
     <div>
       <h1>
         Details page for
-        {' '}
         {instrument.name}
       </h1>
       <img src={instrument.image} alt={instrument.name} />
       <p>{instrument.description}</p>
       <p>
         Category:
-        {' '}
         {instrument.category}
       </p>
       <p>
         Price/day:
-        {' '}
         {instrument.price}
         {' '}
         $
       </p>
-      <Link to="/login"><div>Reserve</div></Link>
+      <Link to="/login">
+        <div>Reserve</div>
+      </Link>
     </div>
   );
 };

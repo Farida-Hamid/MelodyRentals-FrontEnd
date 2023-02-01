@@ -22,7 +22,6 @@ const AppRoutes = () => {
   return (
     <main>
       {instrumentsList.length ? (
-
         <Routes>
           <Route path="/" element={<Home instruments={instrumentsList} />} />
           {/* <Route path="/" element={<Home/>} /> */}
@@ -35,8 +34,9 @@ const AppRoutes = () => {
           <Route path="/login" element={<Login />} />
           {/* <Route path="/signup" element={<Signup />} /> */}
         </Routes>
-      ) : ''}
-
+      ) : (
+        ''
+      )}
     </main>
   );
 };
