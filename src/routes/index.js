@@ -6,6 +6,7 @@ import Home from "../components/Home";
 import Details from "../components/Details";
 import Signup from "../components/Signup";
 import Login from "../components/Login";
+import Reserve from "../components/Reserve";
 // import ProtectedRoutes from '../components/ProtectedRoutes';
 import { recieveInstruments } from '../redux/instruments';
 
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Home instruments={instrumentsList} />} />
           <Route path="/details/:id" element={<Details />} />
+          <Route path="/:id/reserve" element={<Reserve />} />
           {/* <Route element={<ProtectedRoutes />}> */}
           {/*  <Route path="/add_instrument" element={<AddInstrument />} />
         <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
