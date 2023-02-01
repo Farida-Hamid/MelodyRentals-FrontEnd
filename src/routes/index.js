@@ -1,11 +1,11 @@
 /* eslint-disable import/extensions */
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import Home from "../components/Home";
-import Details from "../components/Details";
-import Signup from "../components/Signup";
-import Login from "../components/Login";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import Home from '../components/Home';
+import Details from '../components/Details';
+import Signup from '../components/Signup';
+import Login from '../components/Login';
 // import ProtectedRoutes from '../components/ProtectedRoutes';
 import { recieveInstruments } from '../redux/instruments';
 

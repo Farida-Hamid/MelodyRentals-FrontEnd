@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import { useLocation, Link } from 'react-router-dom';
 import React from 'react';
 
