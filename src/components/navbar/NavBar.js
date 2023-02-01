@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus,
-} from 'react-icons/fa';
+import { FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus } from 'react-icons/fa';
 import Logo from '../img/Logos.png';
 
 const NavBar = () => (
@@ -63,8 +61,8 @@ const NavBar = () => (
               </button>
             </div>
           </div>
-          <div className="container-fluid mb-5">
-            <div className="d-flex justify-content-between me-5 ms-5">
+          <div className="container-fluid mb-5 mt-5 me-5">
+            <div className="d-flex justify-content-between me-3 ms-3">
               <a href="/socials" className="list-group-item list-group-item-action">
                 <FaTwitter className="fa-brands" />
               </a>
