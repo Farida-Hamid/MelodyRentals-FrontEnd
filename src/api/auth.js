@@ -11,7 +11,8 @@ const authLogin = () => {
     },
   };
 
-  axios.post(API_URL, loginPayload)
+  axios
+    .post(API_URL, loginPayload)
     .then((response) => {
       const token = response.headers.get('Authorization');
       // set JWT token to local
@@ -24,6 +25,7 @@ const authLogin = () => {
       // redirect user to home page
       // window.location.href = '/'
     })
+    // eslint-disable-next-line no-console
     .catch((err) => console.log(err));
 };
 

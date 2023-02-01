@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus } from 'react-icons/fa';
+import {
+  FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus,
+} from 'react-icons/fa';
 import Logo from '../img/Logos.png';
 
 const NavBar = () => (

@@ -4,6 +4,7 @@ import authLogin from '../api/auth';
 const Login = () => {
   authLogin();
   const token = localStorage.getItem('token');
+  // eslint-disable-next-line no-console
   console.log('token read from local storage', token);
 
   return (

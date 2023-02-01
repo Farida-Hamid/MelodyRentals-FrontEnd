@@ -1,4 +1,3 @@
-import './App.css';
 import { Provider } from 'react-redux';
 import AppRoutes from './routes';
 import store from './Redux/store';

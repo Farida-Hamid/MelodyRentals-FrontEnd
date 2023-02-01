@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Instrument = ({ instrument }) => (
-  <Link to="/details/{id}" state={{ instrument }}>
-    <div>
-      <h2>{instrument.name}</h2>
-      <>.........</>
-      <p>{instrument.description}</p>
-      <img src={instrument.image} alt={instrument.name} />
-    </div>
-  </Link>
+  <div>
+    <Link to="/details/{id}" state={{ instrument }}>
+      <h2 className="text-decoration-none">{instrument.name}</h2>
+    </Link>
+    <>.........</>
+    <p>{instrument.description}</p>
+    <img src={instrument.image} alt={instrument.name} />
+  </div>
 );
 
 Instrument.propTypes = {

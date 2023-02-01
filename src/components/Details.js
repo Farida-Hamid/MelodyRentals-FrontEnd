@@ -9,7 +9,7 @@ const Details = () => {
   } = location.state;
 
   return (
-    <div>
+    <div className="homepage">
       <h1>
         Details page for
         {instrument.name}
