@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import authReducer from './auth';
+import authReducer from './Auth/auth';
 import instrumentsReducer from './instruments';
 
 // root Reducer
