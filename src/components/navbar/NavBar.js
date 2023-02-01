@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus } from 'react-icons/fa';
+import {
+  FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus,
+} from 'react-icons/fa';
 import Logo from '../img/Logos.png';
 
 const NavBar = () => (
@@ -42,7 +44,7 @@ const NavBar = () => (
                 to="/add-instrument"
                 className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none"
               >
-                <span className="fs-5 d-none d-sm-inline ms-4 fw-bold">ADD Instrument</span>
+                <span className="fs-5 d-none d-sm-inline ms-4 fw-bold ">ADD Instrument</span>
               </NavLink>
             </div>
 
