@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const END_POINT = "http://localhost:3000/api/v1";
+const END_POINT = 'http://localhost:3000/api/v1';
 
 export const baseApi = axios.create({
   baseURL: `${END_POINT}`,
@@ -11,22 +11,22 @@ const handleError = (error) => {
   if (error.response) {
     switch (error.response.status) {
       case 400:
-        console.error("Bad Request");
+        console.error('Bad Request');
         break;
       case 401:
-        console.error("Unauthorized");
+        console.error('Unauthorized');
         break;
       case 403:
-        console.error("Forbidden");
+        console.error('Forbidden');
         break;
       case 404:
-        console.error("Not Found");
+        console.error('Not Found');
         break;
       default:
-        console.error("Server Error");
+        console.error('Server Error');
     }
   } else {
-    console.error("Network Error");
+    console.error('Network Error');
   }
 };
 
@@ -34,7 +34,7 @@ const handleError = (error) => {
 export const signup = async (newuser) => {
   try {
     const userobj = { user: newuser };
-    const response = await baseApi.post("/auth/signup", userobj);
+    const response = await baseApi.post('/auth/signup', userobj);
     const authToken = response.headers.authorization;
     const currentUser = response.data;
     return { authToken, currentUser };
@@ -45,17 +45,16 @@ export const signup = async (newuser) => {
 
 export const login = async (newuser) => {
   const userobj = { user: newuser };
-  const response = await baseApi.post("/auth/login", userobj);
+  const response = await baseApi.post('/auth/login', userobj);
   console.log(response.data);
   const authToken = response.headers.authorization;
-  const currentUser = newuser;
-  // console.log(currentUser);
+  const currentUser = response.data.data;
   return { authToken, currentUser };
 };
 
 export const logout = async (dispatch, type) => {
-  const token = localStorage.getItem("token");
-  await baseApi.delete("/auth/logout", {
+  const token = localStorage.getItem('token');
+  await baseApi.delete('/auth/logout', {
     headers: {
       Authorization: `${token}`,
     },
@@ -66,17 +65,16 @@ export const logout = async (dispatch, type) => {
 // export const addInstrument = async (newinstrument) => {
 export const addInstrument = (newinstrument) => async (dispatch) => {
   try {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: token,
       },
     };
     console.log(token);
-    // config["headers"]["Authorization"] = token;
     const instrumentobj = { instrument: newinstrument };
-    const response = await baseApi.post("/instruments", instrumentobj, config);
+    const response = await baseApi.post('/instruments', instrumentobj, config);
     const addedInstrument = response.data;
     // TODO (Add instrument to list)
     return { addedInstrument };
@@ -85,11 +83,11 @@ export const addInstrument = (newinstrument) => async (dispatch) => {
   }
 };
 
-//delete instrument
+// delete instrument
 export const deleteInstrument = (id) => async (dispatch) => {
   try {
     const instrumentId = { instrument: deletId };
-    const response = await baseApi.delete("/instruments/id", instrumentId);
+    const response = await baseApi.delete('/instruments/id', instrumentId);
     const deleteInstrument = response.data;
     return { deleteInstrument };
   } catch (error) {

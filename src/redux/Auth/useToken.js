@@ -1,3 +1,3 @@
-const useToken = () => localStorage.getItem("token") || false;
+const useToken = () => localStorage.getItem('token') || false;
 
 export default useToken;

@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
-import { userLogin } from "../redux/Auth/auth";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { userLogin } from '../redux/Auth/auth';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!username) {
-      setUsernameError("Username is required");
+      setUsernameError('Username is required');
     } else {
-      setUsernameError("");
+      setUsernameError('');
     }
     if (!password) {
-      setPasswordError("Password is required");
+      setPasswordError('Password is required');
     } else {
-      setPasswordError("");
+      setPasswordError('');
     }
 
     dispatch(userLogin(username, password, navigate));

@@ -1,13 +1,13 @@
-import { login, logout, signup } from "../../api/api";
+import { login, logout, signup } from '../../api/api';
 
-const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-const LOGIN_FAIL = "LOGIN_FAIL";
-const LOGOUT = "LOGOUT";
-const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-const REGISTER_FAIL = "REGISTER_FAIL";
+const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+const LOGIN_FAIL = 'LOGIN_FAIL';
+const LOGOUT = 'LOGOUT';
+const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+const REGISTER_FAIL = 'REGISTER_FAIL';
 
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem('token'),
   isAuthenticated: null,
   loading: false,
   user: null,
@@ -60,15 +60,15 @@ export const userLogin = (email, password, navigate) => async (dispatch) => {
       password,
     };
     const response = login(user);
-    localStorage.setItem("token", (await response).authToken);
-    localStorage.setItem("user", (await response).currentUser);
+    localStorage.setItem('token', (await response).authToken);
+    localStorage.setItem('user', JSON.stringify((await response).currentUser));
     dispatch(setCurrentUser(response));
-    navigate("/");
+    navigate('/');
   } catch (err) {
     // TODO
     const { errors } = err.response.data;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
     }
     dispatch({
       type: LOGIN_FAIL,
