@@ -28,7 +28,6 @@ const AppRoutes = () => {
           <Route path="/" element={<Home instruments={instrumentsList} />} />
           <Route path="/details/:id" element={<Details />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path="/add_instrument" element={<AddInstrument />} />
             {/* <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
             {/* <Route path="/rentals" element={<Rentals />} /> */}
             <Route path="/add-instrument" element={<AddInstrument />} />
