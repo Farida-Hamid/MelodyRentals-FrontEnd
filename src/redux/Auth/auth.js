@@ -10,17 +10,20 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
   loading: false,
-  user: null,
+  username: '',
+  role: '',
 };
 
 const authReducer = (state = initialState, action) => {
-  const { type } = action;
+  const { type, payload } = action;
   switch (type) {
     case LOGIN_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
         loading: false,
+        username: payload.username,
+        role: payload.role,
       };
     case LOGIN_FAIL:
     case LOGOUT:

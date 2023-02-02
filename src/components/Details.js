@@ -22,7 +22,7 @@ const Details = () => {
           Price/day:
           {instrument.price}$
         </p>
-        <Link to="/login">
+        <Link to="/{instrument.id}/reserve">
           <div>Reserve</div>
         </Link>
       </div>

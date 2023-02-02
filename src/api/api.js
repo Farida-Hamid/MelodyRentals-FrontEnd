@@ -46,7 +46,13 @@ export const signup = async (newuser) => {
 export const login = async (newuser) => {
   const userobj = { user: newuser };
   const response = await baseApi.post("/auth/login", userobj);
-  const authToken = response.headers.authorization;
+  const token = response.headers.authorization;
+  console.log("response in login", response.data.status);
+  // const token = response.headers.authorization;
+  // const token = response.headers.authorization;
+  const authToken = token.replace("Bearer ", "");
+  console.log("in login",authToken)
+  localStorage.setItem("token", authToken);
   const currentUser = newuser;
   return { authToken, currentUser };
 };
