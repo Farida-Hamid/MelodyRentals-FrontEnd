@@ -35,7 +35,7 @@ const AddInstrument = () => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
-    image: "",
+    image: "www/google.com",
     category: "",
     price: "",
     user_id: "",
@@ -68,7 +68,7 @@ const AddInstrument = () => {
     newinstrument.category = formData.category;
     newinstrument.price = formData.price;
     // TODO
-    newinstrument.user_id = 1;
+    newinstrument.user_id = 5;
     dispatch(addInstrument(newinstrument));
   };
 

@@ -46,8 +46,10 @@ export const signup = async (newuser) => {
 export const login = async (newuser) => {
   const userobj = { user: newuser };
   const response = await baseApi.post("/auth/login", userobj);
+  console.log(response.data);
   const authToken = response.headers.authorization;
   const currentUser = newuser;
+  // console.log(currentUser);
   return { authToken, currentUser };
 };
 
@@ -64,17 +66,32 @@ export const logout = async (dispatch, type) => {
 // export const addInstrument = async (newinstrument) => {
 export const addInstrument = (newinstrument) => async (dispatch) => {
   try {
-    var config = {
-      headers: {},
-    };
     const token = localStorage.getItem("token");
-
-    config["headers"]["Authorization"] = token;
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    };
+    console.log(token);
+    // config["headers"]["Authorization"] = token;
     const instrumentobj = { instrument: newinstrument };
     const response = await baseApi.post("/instruments", instrumentobj, config);
     const addedInstrument = response.data;
     // TODO (Add instrument to list)
     return { addedInstrument };
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+//delete instrument
+export const deleteInstrument = (id) => async (dispatch) => {
+  try {
+    const instrumentId = { instrument: deletId };
+    const response = await baseApi.delete("/instruments/id", instrumentId);
+    const deleteInstrument = response.data;
+    return { deleteInstrument };
   } catch (error) {
     handleError(error);
   }
