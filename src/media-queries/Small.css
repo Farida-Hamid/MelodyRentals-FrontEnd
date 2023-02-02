@@ -1,0 +1,108 @@
+@media (max-width: 575.98px) {
+  .logo {
+    margin-top: -4rem;
+  }
+
+  .mobile-items {
+    margin-top: -3rem;
+  }
+
+  .nav-side-bar {
+    display: none;
+  }
+
+  .mobile-nav-bar {
+    display: block;
+  }
+
+  .mobile-footer {
+    margin-top: 10rem;
+  }
+
+  .fa-brands {
+    font-size: 24px;
+  }
+
+  .homepage {
+    margin-top: -2rem;
+    margin-left: -2rem;
+  }
+
+  .main-slider {
+    display: none;
+  }
+
+  .mobile-image-slider {
+    max-width: 75%;
+    min-height: 20vh;
+    margin-left: 6rem;
+  }
+
+  .test {
+    text-align: center;
+    margin-top: 5rem;
+  }
+
+  .home-text {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .select-text {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 18px;
+  }
+
+  .registration {
+    margin-left: -2rem;
+    width: 100%;
+  }
+
+  .log-in {
+    margin-left: -2rem;
+  }
+
+  .btn-reserve {
+    background-color: #97bf0f;
+    margin-top: 3rem;
+  }
+
+  .reservations {
+    margin-top: 5rem;
+    margin-left: 1.2rem;
+    margin-right: 1rem;
+    width: 90%;
+  }
+
+  .my-reservations {
+    margin-top: 5rem;
+    margin-left: 1.2rem;
+    margin-right: 1rem;
+    width: 90%;
+  }
+
+  .card-img-top {
+    max-width: 25rem;
+    height: 15rem;
+  }
+
+  .car-desc {
+    max-width: 25rem;
+    height: 10rem;
+    overflow-y: scroll;
+  }
+
+  .car-img-details {
+    max-width: 30rem;
+    height: 25rem;
+  }
+
+  .details {
+    margin-top: 5rem;
+    margin-left: 1.2rem;
+    margin-right: 1rem;
+    width: 90%;
+  }
+}

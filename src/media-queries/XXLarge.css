@@ -1,0 +1,88 @@
+@media (min-width: 1204px) and (max-width: 1500px) {
+  .fa-brands {
+    font-size: 24px;
+  }
+
+  .homepage {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    max-width: 75%;
+  }
+
+  .main-slider {
+    max-width: 95%;
+    min-height: 20vh;
+    margin: auto;
+  }
+
+  .test {
+    text-align: center;
+    margin-top: 5rem;
+  }
+
+  .home-text {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .select-text {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 18px;
+  }
+
+  .registration {
+    position: absolute;
+    top: 1%;
+    left: 20%;
+    max-width: 75%;
+  }
+
+  .log-in {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    max-width: 75%;
+  }
+
+  .reservations,
+  .my-reservations {
+    position: absolute;
+    top: 10%;
+    left: 27%;
+  }
+
+  .details {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    max-width: 90%;
+  }
+
+  .add-car {
+    width: 800px;
+  }
+
+  .details-right {
+    margin-left: 45rem;
+  }
+
+  .detailed-card {
+    width: 25rem;
+  }
+
+  .btn-reserve {
+    background-color: #97bf0f;
+    margin-top: 3rem;
+  }
+
+  .table {
+    width: 50rem;
+  }
+
+  .mobile-image-slider {
+    display: none;
+  }
+}
