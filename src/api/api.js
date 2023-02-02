@@ -60,3 +60,22 @@ export const logout = async (dispatch, type) => {
   });
   dispatch({ type });
 };
+
+// export const addInstrument = async (newinstrument) => {
+export const addInstrument = (newinstrument) => async (dispatch) => {
+  try {
+    var config = {
+      headers: {},
+    };
+    const token = localStorage.getItem("token");
+
+    config["headers"]["Authorization"] = token;
+    const instrumentobj = { instrument: newinstrument };
+    const response = await baseApi.post("/instruments", instrumentobj, config);
+    const addedInstrument = response.data;
+    // TODO (Add instrument to list)
+    return { addedInstrument };
+  } catch (error) {
+    handleError(error);
+  }
+};
