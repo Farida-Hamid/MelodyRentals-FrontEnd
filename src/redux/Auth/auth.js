@@ -61,7 +61,7 @@ export const userLogin = (email, password, navigate) => async (dispatch) => {
     };
     const response = login(user);
     localStorage.setItem('token', (await response).authToken);
-    localStorage.setItem('user', (await response).currentUser);
+    localStorage.setItem('user', JSON.stringify((await response).currentUser));
     dispatch(setCurrentUser(response));
     navigate('/');
   } catch (err) {

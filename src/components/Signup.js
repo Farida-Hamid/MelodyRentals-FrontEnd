@@ -40,12 +40,12 @@ const Signup = () => {
   // after form submit data
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(validate(values));
+    setErrors(validate());
     dispatch(userRegister(values));
   };
 
   // error handling
-  const validate = (values) => {
+  const validate = () => {
     const errors = {};
     if (!values.name) {
       errors.name = 'Name is required';
@@ -61,81 +61,87 @@ const Signup = () => {
     if (!values.password) {
       errors.password = 'Password is required';
     }
-    if (!values.confirmPassword) {
-      errors.confirmPassword = 'Confirm Password is required';
-    } else if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = 'Passwords do not match';
+    if (!values.password_confirmation) {
+      errors.password_confirmation = 'Confirm Password is required';
+    }
+    if (values.password !== values.password_confirmation) {
+      errors.password_confirmation = 'Passwords do not match';
     }
     return errors;
   };
 
   return (
-    <div className="homepage ">
-      <form className={classes.container} noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <div className="d-flex flex-column">
-          <TextField
-            id="name"
-            label="Name"
-            name="name"
-            className={classes.textField}
-            value={values.name}
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            margin="normal"
-            helperText={errors.name}
-          />
-
-          <TextField
-            id="username"
-            label="Username"
-            name="username"
-            className={classes.textField}
-            value={values.username}
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            margin="normal"
-            helperText={errors.username}
-          />
-          <br />
-          <TextField
-            id="email"
-            label="Email"
-            name="email"
-            className={classes.textField}
-            value={values.email}
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            margin="normal"
-            helperText={errors.email}
-          />
-          <br />
-          <TextField
-            id="password"
-            label="Password"
-            name="password"
-            className={classes.textField}
-            type="password"
-            value={values.password}
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            margin="normal"
-            helperText={errors.password}
-          />
-          <br />
-          <TextField
-            id="password-confirm"
-            label="Confirm Password"
-            name="password_confirmation"
-            className={classes.textField}
-            type="password"
-            value={values.password_confirmation}
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            margin="normal"
-            helperText={errors.confirmPassword}
-          />
-          <br />
-          <Button type="submit" variant="contained" color="primary" className={classes.button}>
-            Sign Up
-          </Button>
-        </div>
-      </form>
-    </div>
+    <form
+      className={classes.container}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
+      <TextField
+        id="name"
+        label="Name"
+        name="name"
+        className={classes.textField}
+        value={values.name}
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+        margin="normal"
+        helperText={errors.name}
+      />
+      <TextField
+        id="username"
+        label="Username"
+        name="username"
+        className={classes.textField}
+        value={values.username}
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+        margin="normal"
+        helperText={errors.username}
+      />
+      <br />
+      <TextField
+        id="email"
+        label="Email"
+        name="email"
+        className={classes.textField}
+        value={values.email}
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+        margin="normal"
+        helperText={errors.email}
+      />
+      <br />
+      <TextField
+        id="password"
+        label="Password"
+        name="password"
+        className={classes.textField}
+        type="password"
+        value={values.password}
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+        margin="normal"
+        helperText={errors.password}
+      />
+      <br />
+      <TextField
+        id="password-confirm"
+        label="Confirm Password"
+        name="password_confirmation"
+        className={classes.textField}
+        type="password"
+        value={values.password_confirmation}
+        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+        margin="normal"
+        helperText={errors.confirmPassword}
+      />
+      <br />
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        className={classes.button}
+      >
+        Sign Up
+      </Button>
+    </form>
   );
 };
 
