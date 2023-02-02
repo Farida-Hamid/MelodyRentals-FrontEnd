@@ -59,8 +59,13 @@ const Signup = () => {
     if (!values.password) {
       errors.password = "Password is required";
     }
+    if (!values.confirmPassword) {
+      errors.confirmPassword = "Confirm Password is required";
+    }
     if (values.password !== values.confirmPassword) {
       errors.confirmPassword = "Passwords do not match";
+    } else {
+      return true;
     }
     return errors;
   };
