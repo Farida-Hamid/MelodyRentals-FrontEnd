@@ -6,8 +6,9 @@ import Home from "../components/Home";
 import Details from "../components/Details";
 import Signup from "../components/Signup";
 import Login from "../components/Login";
-// import ProtectedRoutes from '../components/ProtectedRoutes';
+import ProtectedRoutes from "../components/ProtectedRoutes";
 import { recieveInstruments } from "../redux/instruments";
+import AddInstrument from "../components/AddInstrument";
 
 const AppRoutes = () => {
   const instrumentsList = useSelector((state) => state.instruments);
@@ -26,12 +27,12 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Home instruments={instrumentsList} />} />
           <Route path="/details/:id" element={<Details />} />
-          {/* <Route element={<ProtectedRoutes />}> */}
-          {/*  <Route path="/add_instrument" element={<AddInstrument />} />
-        <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
-
-          {/* <Route path="/rentals" element={<Rentals />} /> */}
-          {/* </Route> */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/add_instrument" element={<AddInstrument />} />
+            {/* <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
+            {/* <Route path="/rentals" element={<Rentals />} /> */}
+            <Route path="/add-instrument" element={<AddInstrument />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
