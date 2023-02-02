@@ -38,12 +38,12 @@ const Signup = () => {
   // after form submit data
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(validate(values));
+    setErrors(validate());
     dispatch(userRegister(values));
   };
 
   //error handling
-  const validate = (values) => {
+  const validate = () => {
     const errors = {};
     if (!values.name) {
       errors.name = "Name is required";
@@ -59,13 +59,11 @@ const Signup = () => {
     if (!values.password) {
       errors.password = "Password is required";
     }
-    if (!values.confirmPassword) {
-      errors.confirmPassword = "Confirm Password is required";
+    if (!values.password_confirmation) {
+      errors.password_confirmation = "Confirm Password is required";
     }
-    if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = "Passwords do not match";
-    } else {
-      return true;
+    if (values.password !== values.password_confirmation) {
+      errors.password_confirmation = "Passwords do not match";
     }
     return errors;
   };
