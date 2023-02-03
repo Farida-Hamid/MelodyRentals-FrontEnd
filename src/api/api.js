@@ -87,7 +87,7 @@ export const addInstrument = (newinstrument) => async (dispatch) => {
 };
 
 // delete instrument
-export const deleteInstrument = (id) => async (dispatch) => {
+export const deleteInstrument = (id, navigate) => async (dispatch) => {
   try {
     const token = localStorage.getItem('token');
     const config = {
@@ -96,9 +96,8 @@ export const deleteInstrument = (id) => async (dispatch) => {
         Authorization: token,
       },
     };
-    const response = await baseApi.delete(`/instruments/${id}`, config);
-    const deleteInstrument = response.data;
-    return { deleteInstrument };
+    await baseApi.delete(`/instruments/${id}`, config);
+    navigate('/');
   } catch (error) {
     handleError(error);
   }
