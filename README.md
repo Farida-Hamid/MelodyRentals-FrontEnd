@@ -21,9 +21,9 @@ REQUIRED SECTIONS:
 
 After you're finished please remove all the comments and instructions!
 -->
-
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/101523582/216619313-5c1b5844-f5a3-4033-aa9a-819bf265590d.png)" alt="logo" width="140"  height="auto" />
+
+  <img src="https://user-images.githubusercontent.com/101523582/216619313-5c1b5844-f5a3-4033-aa9a-819bf265590d.png" alt="logo" width="140"  height="auto" />
   <br/>
 
 </div>
