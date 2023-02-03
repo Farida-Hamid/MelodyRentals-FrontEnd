@@ -21,15 +21,9 @@ REQUIRED SECTIONS:
 
 After you're finished please remove all the comments and instructions!
 -->
-
 <div align="center">
 
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="./img.png" alt="logo" width="200"  height="auto" />
-  <br/>
-
-
-  <img src="./IMG_4089.png" alt="logo" width="140"  height="auto" />
+  <img src="https://user-images.githubusercontent.com/101523582/216619313-5c1b5844-f5a3-4033-aa9a-819bf265590d.png" alt="logo" width="140"  height="auto" />
   <br/>
 
 </div>
@@ -43,11 +37,9 @@ After you're finished please remove all the comments and instructions!
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
     - [Website Mockup 📱 💻 🖥️](#screenshots)
-    - [<img src="https://uxwing.com/wp-content/themes/uxwing/download/ brands-and-social-media/ruby-on-rails-icon.png" width="23" height="20"/> Rails Backend](#rails-backend)
-    - [<img src="https://user-images.githubusercontent.com/101523582/215735670-fbaca35e-fb40-4002-8a64-6a1a6ff66120.png" width="23" height="20"/> Kanban Board](#kanban-board)
-    
+  - [<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ruby-on-rails-icon.png" width="23" height="20"/> Rails Backend](#rails-backend)
+  - [<img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board](#kanban-board)
   - [🚀 Live Demo](#live-demo)
-  
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -65,12 +57,10 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 MelodyRentals Frontend <a name="about-project"></a>
-![Melody Rentals-logo](./IMG_4089.png)
+# 📖 Melody Rentals Frontend <a name="about-project"></a>
+![melodyrentals-logo](https://user-images.githubusercontent.com/101523582/216619313-5c1b5844-f5a3-4033-aa9a-819bf265590d.png)
 
-
-** Melody Rentals ** is a musicial instruments rental application where the user can register new accounts, login and reserve a set of different instruments. It is built and connected by using two different repos, including Back-end(Rails) and Front-end(React/Redux).
-
+**Melody Rentals Frontend** is a musicial  instruments rental application where the user can register new accounts, login and reserve a set of different instruments. It is built and connected by using two different repos, including Back-end(Rails) and Front-end(React/Redux).
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -86,10 +76,7 @@ After you're finished please remove all the comments and instructions!
 <details>
   <summary>Server</summary>
   <ul>
-
-   <li>Rails</li>
-   <li><a href="https://expressjs.com/">Rails s</a></li>
-
+    <li>Rails API</li>
   </ul>
 </details>
 
@@ -104,10 +91,9 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-- **[Musical Instrumetns Page Display]**
-- **[Reservations For Musical Instruments]**
-- **[Login and Registration Page ]**
-
+- **[Cars page display]**
+- **[Reservation for luxary cars]**
+- **[Login and Registration using API endpoint]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,6 +101,13 @@ After you're finished please remove all the comments and instructions!
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Backend Repo -->
+## <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ruby-on-rails-icon.png" width="23" height="20"/> Rails Backend <a name="rails-backend"></a>
+- Here is the Backend part of the project [ Melody Rentals Backend](https://github.com/Farida-Hamid/MelodyRentals-BackEnd)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- Kanban Board -->
 ## <img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board <a name="kanban-board"></a>
@@ -127,16 +120,10 @@ After you're finished please remove all the comments and instructions!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-<!-- Backend Repo -->
-## <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ruby-on-rails-icon.png" width="23" height="20"/> Rails Backend <a name="rails-backend"></a>
-- Here is the Backend part of the project [MelodyRentals Backend](https://github.com/Farida-Hamid/MelodyRentals-BackEnd)
-
-
-
+<!-- LIVE DEMO -->
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo :rocket:]() :smiley:
+- [Live Demo :rocket:] :smiley:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,8 +132,6 @@ After you're finished please remove all the comments and instructions!
 
 To get a local copy up and running, follow these steps.
 ### Prerequisites
-
-In order to run this project you need:
 
 In order to run this project you need:
 `Git` and `Node.js` installed on your computer.
@@ -161,7 +146,7 @@ In order to run this project you need:
 Install this project with:
 
 ```sh
-  npm install
+  npm install # to install all the dependencies
 ```
 
 ### Usage
@@ -176,10 +161,12 @@ To run the project, execute the following command:
 Run tests
 ```sh
   npm test  # for running the tests
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
+
 
 ## 👥 Authors (5 Micronauts) <a name="authors"></a>
 
@@ -211,9 +198,14 @@ Run tests
 - Twitter: [Bantealem](https://twitter.com/BantealemG)
 - LinkedIn: [Bantealem](https://www.linkedin.com/in/bantealem-geto-a301b9213/)
 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- FUTURE FEATURES -->
 
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[Make a 3D display of each car on Details Page that can be rotated]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -223,7 +215,7 @@ Run tests
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Farida-Hamid/MelodyRentals-FrontEnd/issues).
+Feel free to check the [issues page](https://github.com/Farida-Hamid/MelodyRentals-FrontEnd).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -239,10 +231,15 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank:
+We would like to thank:
 - [Microverse](https://www.microverse.org/)
 - Code Reviewers
 
+Under the the [Creative Commons liscense](https://creativecommons.org/licenses/by-nc/4.0/)
+
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/84629565/181086933-d5bcdb09-da51-40f6-b0f8-a1f191614257.png">
+
+Original design from [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -265,6 +262,8 @@ I would like to thank:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
 
 
 This project is [MIT](./LICENSE) licensed.
