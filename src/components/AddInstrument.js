@@ -40,6 +40,17 @@ const AddInstrument = () => {
     user_id: '',
     errors: {},
   });
+
+  //error state
+  const [usernameError, setUsernameError] = useState('');
+  const [descriptionError, setDescriptionError] = useState('');
+  const [categoryError, setCategoryError] = useState('');
+  const [imageError, setImageError] = useState('');
+  const [priceError, setPriceError] = useState('');
+
+
+
+
   const dispatch = useDispatch();
 
   const handleBlur = (field) => {
@@ -60,6 +71,31 @@ const AddInstrument = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     validateForm();
+    if (!formData.name) {
+      setUsernameError('instrument name is required');
+    } else {
+      setUsernameError('');
+    }
+    if (!formData.description) {
+      setDescriptionError('Description is required');
+    } else {
+      setDescriptionError('');
+    }
+    if (!formData.category) {
+      setCategoryError('Category required');
+    } else {
+      setCategoryError('');
+    }
+    if (!formData.image) {
+      setImageError('Image url required');
+    } else {
+      setImageError('');
+    }
+    if (!formData.price) {
+      setPriceError('Price required');
+    } else {
+      setPriceError('');
+    }
     const newinstrument = {};
     newinstrument.name = formData.name;
     newinstrument.description = formData.description;
@@ -88,7 +124,7 @@ const AddInstrument = () => {
             onChange={(event) => handleChange('name', event.target.value)}
             // onBlur={() => handleBlur("name")}
           />
-          {hasError('name') && <p>{formData.errors.name}</p>}
+          {usernameError && <div>{usernameError}</div>}
         </div>
         <div>
           <label>Description</label>
@@ -99,7 +135,7 @@ const AddInstrument = () => {
             onChange={(event) => handleChange('description', event.target.value)}
             // onBlur={() => handleBlur("description")}
           />
-          {hasError('description') && <p>{formData.errors.name}</p>}
+          {descriptionError && <div>{descriptionError}</div>}
         </div>
         <div>
           <label>Category</label>
@@ -110,7 +146,7 @@ const AddInstrument = () => {
             onChange={(event) => handleChange('category', event.target.value)}
             // onBlur={() => handleBlur("category")}
           />
-          {hasError('category') && <p>{formData.errors.name}</p>}
+          {categoryError && <div>{categoryError}</div>}
         </div>
         <div>
           <label>Image</label>
@@ -121,18 +157,18 @@ const AddInstrument = () => {
             onChange={(event) => handleChange('image', event.target.value)}
             // onBlur={() => handleBlur("category")}
           />
-          {hasError('image') && <p>{formData.errors.name}</p>}
+          {imageError && <div>{imageError}</div>}
         </div>
         <div>
           <label>Price</label>
           <input
             id="price"
-            type="text"
+            type="number"
             value={formData.price}
             onChange={(event) => handleChange('price', event.target.value)}
             // onBlur={() => handleBlur("price")}
           />
-          {hasError('price') && <p>{formData.errors.name}</p>}
+          {priceError && <div>{priceError }</div>}
         </div>
 
         <button type="submit">Submit</button>
