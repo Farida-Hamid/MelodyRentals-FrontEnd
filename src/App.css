@@ -12,6 +12,7 @@ body {
 .active {
   background-color: #97bf0f;
   color: white;
+  height: 60px;
 }
 
 a {
