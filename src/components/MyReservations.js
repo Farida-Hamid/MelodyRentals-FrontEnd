@@ -7,16 +7,28 @@ const MyReservations = () => {
 useEffect(() => {
   // setLoading(true);
   const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
 
-  axios
-    .get(
-      `http://127.0.0.1:3000/api/v1/reservations`,
-      token
-    )
-    .then((response) => {
-      console.log("res of instruments is", response);
-    });
-}, []);
+//   axios
+//     .get(
+//       `http://127.0.0.1:3000/api/v1/reservations`,
+//       token
+//     )
+//     .then((response) => {
+//       console.log("res of instruments is", response);
+//     });
+// }, []);
+
+  axios.post('http://127.0.0.1:3000/api/v1/reservations', token, user)
+.then((response) => {
+  // const token = response;
+  // set JWT token to local
+  console.log(response)
+  // window.location.href = '/'
+})
+.catch((err) => console.log(err));
+ }, []);
+
 
   return (
   <h1>my reservations</h1>
