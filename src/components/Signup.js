@@ -1,29 +1,11 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { userRegister } from '../redux/Auth/auth';
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200,
-  },
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
-
 const Signup = () => {
-  const classes = useStyles();
   const [values, setValues] = useState({
     name: '',
     username: '',
@@ -71,77 +53,101 @@ const Signup = () => {
   };
 
   return (
-    <form
-      className={classes.container}
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSubmit}
-    >
-      <TextField
-        id="name"
-        label="Name"
-        name="name"
-        className={classes.textField}
-        value={values.name}
-        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-        margin="normal"
-        helperText={errors.name}
-      />
-      <TextField
-        id="username"
-        label="Username"
-        name="username"
-        className={classes.textField}
-        value={values.username}
-        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-        margin="normal"
-        helperText={errors.username}
-      />
-      <br />
-      <TextField
-        id="email"
-        label="Email"
-        name="email"
-        className={classes.textField}
-        value={values.email}
-        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-        margin="normal"
-        helperText={errors.email}
-      />
-      <br />
-      <TextField
-        id="password"
-        label="Password"
-        name="password"
-        className={classes.textField}
-        type="password"
-        value={values.password}
-        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-        margin="normal"
-        helperText={errors.password}
-      />
-      <br />
-      <TextField
-        id="password-confirm"
-        label="Confirm Password"
-        name="password_confirmation"
-        className={classes.textField}
-        type="password"
-        value={values.password_confirmation}
-        onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-        margin="normal"
-        helperText={errors.confirmPassword}
-      />
-      <br />
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        className={classes.button}
-      >
-        Sign Up
-      </Button>
-    </form>
+    <>
+      <div className="homepage d-flex w-100 justify-content-center">
+        <div className="card">
+          <div className="card-header">Sign Up</div>
+          <div className="card-body">
+            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="label" className="form-label">
+                  Name:
+                </label>
+                <br />
+                <input
+                  type="text"
+                  value={values.name}
+                  onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+                  className="form-control"
+                />
+                {errors && <small className="text-danger">{errors.name}</small>}
+              </div>
+              <div>
+                <label htmlFor="label-1" className="form-label">
+                  Username:
+                </label>
+                <br />
+                <input
+                  type="text"
+                  value={values.username}
+                  onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+                  className="form-control"
+                />
+                {errors && (
+                  <small className="text-danger">{errors.username}</small>
+                )}
+              </div>
+              <div>
+                <label htmlFor="label-2" className="form-label">
+                  Email:
+                </label>
+                <br />
+                <input
+                  type="email"
+                  value={values.email}
+                  onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+                  className="form-control"
+                />
+                {errors && (
+                  <small className="text-danger">{errors.email}</small>
+                )}
+              </div>
+              <div>
+                <label htmlFor="label-3" className="form-label">
+                  Password:
+                </label>
+                <br />
+                <input
+                  type="password"
+                  value={values.password}
+                  onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+                  className="form-control"
+                />
+                {errors && (
+                  <small className="text-danger">{errors.password}</small>
+                )}
+              </div>
+              <div>
+                <label htmlFor="label-4" className="form-label">
+                  Password:
+                </label>
+                <br />
+                <input
+                  type="password"
+                  value={values.password_confirmation}
+                  onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+                  className="form-control"
+                />
+                {errors && (
+                  <small className="text-danger">
+                    {errors.password_confirmation}
+                  </small>
+                )}
+              </div>
+              <button type="submit" className="btn btn-primary mt-2">
+                Sign Up
+              </button>
+            </form>
+          </div>
+          <div className="card-footer d-flex gap-1">
+            <p className="text-muted"> Already have account?</p>
+            <NavLink to="/login" className="nav-link text-primary">
+              Login
+            </NavLink>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
