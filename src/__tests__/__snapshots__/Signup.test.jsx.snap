@@ -1,0 +1,52 @@
+exports[`Should render the Signup component 1`] = `
+  <div>
+    <h1>Sign Up</h1>
+    <div>
+    <label
+      htmlFor="name">
+      Name
+    </label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+      />
+    <label
+      htmlFor="username">
+      Username
+    </label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+      />
+    <label
+      htmlFor="email">
+      Email
+    </label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+      />
+    <label
+      htmlFor="password">
+      Password
+    </label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+      />
+    <label
+      htmlFor="password_confirmation">
+      Confirm Password
+    </label>
+      <input
+        type="password_confirmation"
+        name="password_confirmation"
+        id="password_confirmation"
+      />
+    </div>
+  </div>
+`;

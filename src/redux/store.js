@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { newInstrumentReducer } from '../components/AddInstrument';
 import authReducer from './Auth/auth';
@@ -13,6 +14,10 @@ const rootReducer = combineReducers({
 // store
 const store = configureStore({
   reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;
