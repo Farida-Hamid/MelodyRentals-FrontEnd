@@ -9,6 +9,7 @@ import Login from '../components/Login';
 import ProtectedRoutes from '../components/ProtectedRoutes';
 import { recieveInstruments } from '../redux/instruments';
 import AddInstrument from '../components/AddInstrument';
+import MyReservations from '../components/MyReservations';
 
 const AppRoutes = () => {
   const instrumentsList = useSelector((state) => state.instruments);
@@ -31,6 +32,8 @@ const AppRoutes = () => {
             {/* <Route path="/delete_instrument/:id" element={<EditInstrument />} /> */}
             {/* <Route path="/rentals" element={<Rentals />} /> */}
             <Route path="/add-instrument" element={<AddInstrument />} />
+            <Route path="/my-reservations" element={<MyReservations />} />
+            MyReservations
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
