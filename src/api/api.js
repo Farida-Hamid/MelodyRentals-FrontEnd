@@ -102,3 +102,20 @@ export const deleteInstrument = (id, navigate) => async (dispatch) => {
     handleError(error);
   }
 };
+
+export const reserveInstrument = (newreservation) => async (dispatch) => {
+  try {
+    const token = localStorage.getItem('token');
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    };
+    const reservation = { reservation: newreservation };
+    await baseApi.post('/user/reservations', reservation, config);
+    return { deleteInstrument };
+  } catch (error) {
+    handleError(error);
+  }
+};

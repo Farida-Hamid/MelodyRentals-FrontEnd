@@ -39,9 +39,6 @@ const Details = () => {
           Price/day:
           {instrument.price}$
         </p>
-        <Link to="/login">
-          <div>Reserve</div>
-        </Link>
         <DeleteButton id={instrument.id} />
       </div>
     </div>
