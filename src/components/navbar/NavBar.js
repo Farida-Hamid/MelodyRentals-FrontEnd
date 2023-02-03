@@ -6,9 +6,8 @@ import {
 import Logo from '../img/Logos.png';
 import useToken from '../../redux/Auth/useToken';
 import {deleteInstrument, logout} from '../../api/api';
-import {useSelector} from "react-redux";
-import{useDispatch} from "react-redux";
-
+import {useSelector,useDispatch} from "react-redux";
+import {logoutUser} from "../../redux/Auth/auth";
 const SignUpButton = () => {
   return (
       <NavLink to="/signup">
@@ -35,12 +34,11 @@ const LoginButton = () => {
   );
 };
 const LogoutButton = () => {
+  const dispatch = useDispatch();
   return (
     <button
       className="btn btn-danger btn-block"
-      onClick={() => logout({
-        returnTo: window.location.origin,
-      })}
+      onClick={()=>dispatch(logoutUser())}
     >
       Log Out
     </button>
@@ -50,8 +48,9 @@ const LogoutButton = () => {
 
 const AuthenticationButton = (props) => {
   // const [isAuthenticated, setAuthenticated] = useState(false);
-  const { isAuthenticated } = props;
-  if (isAuthenticated === false) {
+  // const { isAuthenticated } = props;
+  const {isAuthenticated} = useSelector(state => state.auth);
+  if (isAuthenticated === null) {
     return (
       <>
         <LoginButton />
