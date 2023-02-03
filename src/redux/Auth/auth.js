@@ -71,12 +71,16 @@ export const userLogin = (email, password, navigate) => async (dispatch) => {
   }
 };
 
-export const userRegister = (user) => (dispatch) => {
+export const userRegister = (user, navigate) => async (dispatch) => {
   try {
-    signup(user);
+    const response = signup(user);
+    localStorage.setItem('token', (await response).authToken);
+    localStorage.setItem('user', JSON.stringify((await response).currentUser));
+    dispatch(setCurrentUser(response));
     dispatch({
       type: REGISTER_SUCCESS,
     });
+    navigate('/');
   } catch (err) {
     // const { errors } = err.response.data;
     dispatch({

@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable */
 import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,7 +9,7 @@ const DeleteButton = ({ id }) => {
   const user = JSON.parse(localStorage.getItem('user'));
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  if (user !== null && user.role === 'admin') {
+  if (user?.role === 'admin') {
     return (
       <>
         <button

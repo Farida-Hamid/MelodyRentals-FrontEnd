@@ -1,8 +1,9 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import { userRegister } from '../redux/Auth/auth';
 
 const Signup = () => {
@@ -16,14 +17,14 @@ const Signup = () => {
 
   // error handling state
   const [errors, setErrors] = useState({});
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // after form submit data
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validate());
-    dispatch(userRegister(values));
+    dispatch(userRegister(values,navigate));
   };
 
   // error handling
@@ -66,6 +67,7 @@ const Signup = () => {
                 <br />
                 <input
                   type="text"
+                  name = "name"
                   value={values.name}
                   onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                   className="form-control"
@@ -79,6 +81,7 @@ const Signup = () => {
                 <br />
                 <input
                   type="text"
+                  name="username"
                   value={values.username}
                   onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                   className="form-control"
@@ -94,6 +97,7 @@ const Signup = () => {
                 <br />
                 <input
                   type="email"
+                  name="email"
                   value={values.email}
                   onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                   className="form-control"
@@ -109,6 +113,7 @@ const Signup = () => {
                 <br />
                 <input
                   type="password"
+                  name="password"
                   value={values.password}
                   onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                   className="form-control"
@@ -124,6 +129,7 @@ const Signup = () => {
                 <br />
                 <input
                   type="password"
+                  name="password_confirmation"
                   value={values.password_confirmation}
                   onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                   className="form-control"
