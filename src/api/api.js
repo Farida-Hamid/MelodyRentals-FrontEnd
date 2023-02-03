@@ -41,6 +41,7 @@ export const signup = async (newuser) => {
   } catch (error) {
     handleError(error);
   }
+  return newuser;
 };
 
 export const login = async (newuser) => {
@@ -51,7 +52,7 @@ export const login = async (newuser) => {
   return { authToken, currentUser };
 };
 
-export const logout = async (dispatch, type) => {
+export const logout = async () => {
   const token = localStorage.getItem('token');
   await baseApi.delete('/auth/logout', {
     headers: {
@@ -61,12 +62,10 @@ export const logout = async (dispatch, type) => {
   });
   localStorage.removeItem('token');
   localStorage.removeItem('user');
-  // TODO dispatch action here to trigger rendering of DOM
-  // dispatch({ type });
+  return token;
 };
 
-// export const addInstrument = async (newinstrument) => {
-export const addInstrument = (newinstrument) => async (dispatch) => {
+export const addInstrument = async (newinstrument, setSuccessMessage) => {
   try {
     const token = localStorage.getItem('token');
     const config = {
@@ -75,19 +74,20 @@ export const addInstrument = (newinstrument) => async (dispatch) => {
         Authorization: token,
       },
     };
-    console.log(token);
     const instrumentobj = { instrument: newinstrument };
     const response = await baseApi.post('/instruments', instrumentobj, config);
     const addedInstrument = response.data;
+    setSuccessMessage('Added Successfully');
     // TODO (Add instrument to list)
     return { addedInstrument };
   } catch (error) {
     handleError(error);
   }
+  return newinstrument;
 };
 
 // delete instrument
-export const deleteInstrument = (id, navigate) => async (dispatch) => {
+export const deleteInstrument = async (id, navigate) => {
   try {
     const token = localStorage.getItem('token');
     const config = {
@@ -101,9 +101,10 @@ export const deleteInstrument = (id, navigate) => async (dispatch) => {
   } catch (error) {
     handleError(error);
   }
+  return id;
 };
 
-export const reserveInstrument = (newreservation) => async (dispatch) => {
+export const reserveInstrument = async (newreservation) => {
   try {
     const token = localStorage.getItem('token');
     const config = {
@@ -118,4 +119,5 @@ export const reserveInstrument = (newreservation) => async (dispatch) => {
   } catch (error) {
     handleError(error);
   }
+  return newreservation;
 };
