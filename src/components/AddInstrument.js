@@ -24,13 +24,6 @@ export const newInstrumentReducer = (state = initialState, action) => {
 };
 
 const AddInstrument = () => {
-  const [touched, setTouched] = useState({
-    name: false,
-    description: false,
-    image: false,
-    category: false,
-    price: false,
-  });
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -41,28 +34,15 @@ const AddInstrument = () => {
     errors: {},
   });
 
-  //error state
+  // error state
   const [usernameError, setUsernameError] = useState('');
   const [descriptionError, setDescriptionError] = useState('');
   const [categoryError, setCategoryError] = useState('');
   const [imageError, setImageError] = useState('');
   const [priceError, setPriceError] = useState('');
-
-
-
+  const [successMessage, setSuccessMessage] = useState('');
 
   const dispatch = useDispatch();
-
-  const handleBlur = (field) => {
-    setTouched({ ...touched, [field]: true });
-    // validateForm();
-    console.log('Fix me');
-  };
-
-  const validateForm = () => {
-    // TODO
-    console.log('Fix me');
-  };
 
   const handleChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
@@ -70,7 +50,6 @@ const AddInstrument = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    validateForm();
     if (!formData.name) {
       setUsernameError('instrument name is required');
     } else {
@@ -104,75 +83,88 @@ const AddInstrument = () => {
     newinstrument.price = formData.price;
     const user = JSON.parse(localStorage.getItem('user'));
     newinstrument.user_id = user.id;
-    dispatch(addInstrument(newinstrument));
+    dispatch(addInstrument(newinstrument, setSuccessMessage));
   };
 
-  const hasError = (field) => touched[field] && formData.errors[field];
-
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h1>Add Instrument</h1>
-        </div>
-        <div>
-          <label>Name</label>
-          <input
-            id="name"
-            type="text"
-            value={formData.name}
-            onChange={(event) => handleChange('name', event.target.value)}
-            // onBlur={() => handleBlur("name")}
-          />
-          {usernameError && <div>{usernameError}</div>}
-        </div>
-        <div>
-          <label>Description</label>
-          <input
-            id="description"
-            type="text"
-            value={formData.description}
-            onChange={(event) => handleChange('description', event.target.value)}
-            // onBlur={() => handleBlur("description")}
-          />
-          {descriptionError && <div>{descriptionError}</div>}
-        </div>
-        <div>
-          <label>Category</label>
-          <input
-            id="category"
-            type="text"
-            value={formData.category}
-            onChange={(event) => handleChange('category', event.target.value)}
-            // onBlur={() => handleBlur("category")}
-          />
-          {categoryError && <div>{categoryError}</div>}
-        </div>
-        <div>
-          <label>Image</label>
-          <input
-            id="image"
-            type="text"
-            value={formData.image}
-            onChange={(event) => handleChange('image', event.target.value)}
-            // onBlur={() => handleBlur("category")}
-          />
-          {imageError && <div>{imageError}</div>}
-        </div>
-        <div>
-          <label>Price</label>
-          <input
-            id="price"
-            type="number"
-            value={formData.price}
-            onChange={(event) => handleChange('price', event.target.value)}
-            // onBlur={() => handleBlur("price")}
-          />
-          {priceError && <div>{priceError }</div>}
-        </div>
+    <div className="homepage d-flex w-100 justify-content-center">
+      <div className="card">
+        <div className="card-header">Add Instrument</div>
+        <div className="card-body">
+          <div className="text-success">{successMessage && successMessage}</div>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="label" className="form-label">Name</label>
+              <input
+                id="name"
+                type="text"
+                className="form-control"
+                value={formData.name}
+                onChange={(event) => handleChange('name', event.target.value)}
+              />
+              {usernameError && (
+                <small className="text-danger">{usernameError}</small>
+              )}
+            </div>
+            <div>
+              <label htmlFor="label" className="form-label">Description</label>
+              <input
+                id="description"
+                type="text"
+                className="form-control"
+                value={formData.description}
+                onChange={(event) => handleChange('description', event.target.value)}
+              />
+              {descriptionError && (
+                <small className="text-danger">{descriptionError}</small>
+              )}
+            </div>
+            <div>
+              <label htmlFor="label" className="form-label">Category</label>
+              <input
+                id="category"
+                type="text"
+                className="form-control"
+                value={formData.category}
+                onChange={(event) => handleChange('category', event.target.value)}
+              />
+              {categoryError && (
+                <small className="text-danger">{categoryError}</small>
+              )}
+            </div>
+            <div>
+              <label htmlFor="label" className="form-label">Image</label>
+              <input
+                id="image"
+                type="text"
+                className="form-control"
+                value={formData.image}
+                onChange={(event) => handleChange('image', event.target.value)}
+              />
+              {imageError && (
+                <small className="text-danger">{imageError}</small>
+              )}
+            </div>
+            <div>
+              <label htmlFor="label" className="form-label">Price</label>
+              <input
+                id="price"
+                type="number"
+                className="form-control"
+                value={formData.price}
+                onChange={(event) => handleChange('price', event.target.value)}
+              />
+              {priceError && (
+                <small className="text-danger">{priceError}</small>
+              )}
+            </div>
 
-        <button type="submit">Submit</button>
-      </form>
+            <button type="submit" className="btn btn-primary mt-3">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

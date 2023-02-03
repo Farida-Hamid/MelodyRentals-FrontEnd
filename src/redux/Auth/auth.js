@@ -1,5 +1,4 @@
 import { login, logout, signup } from '../../api/api';
-import {useSelector} from "react-redux";
 
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -66,11 +65,6 @@ export const userLogin = (email, password, navigate) => async (dispatch) => {
     dispatch(setCurrentUser(response));
     navigate('/');
   } catch (err) {
-    // TODO
-    const { errors } = err.response.data;
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
-    }
     dispatch({
       type: LOGIN_FAIL,
     });
@@ -93,5 +87,5 @@ export const userRegister = (user) => (dispatch) => {
 
 export const logoutUser = () => (dispatch) => {
   logout(dispatch, LOGOUT);
-  dispatch({type:LOGOUT});
+  dispatch({ type: LOGOUT });
 };
