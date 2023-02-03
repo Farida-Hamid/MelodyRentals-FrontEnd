@@ -8,7 +8,7 @@ const DeleteButton = (props) => {
   const user = JSON.parse(localStorage.getItem('user'));
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  if (user.role === 'admin') {
+  if (user !== null && user.role === 'admin') {
     return (
         <button className="btn btn-danger btn-block" onClick={() => dispatch(deleteInstrument(props.id, navigate))}>
           Delete Instrument
