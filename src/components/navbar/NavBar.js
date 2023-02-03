@@ -1,12 +1,78 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   FaTwitter, FaVimeoV, FaPinterest, FaFacebook, FaGooglePlus,
 } from 'react-icons/fa';
 import Logo from '../img/Logos.png';
+import useToken from '../../redux/Auth/useToken';
+import {deleteInstrument, logout} from '../../api/api';
+import {useSelector} from "react-redux";
+import{useDispatch} from "react-redux";
 
-const NavBar = () => (
-  <div className="nav-side-bar">
+const SignUpButton = () => {
+  return (
+    <button
+      className="btn btn-primary btn-block"
+      onClick={() => loginWithRedirect({
+        screen_hint: 'signup',
+      })}
+    >
+      <NavLink to="/signup">
+      Sign Up
+      </NavLink>
+    </button>
+  );
+};
+
+const LoginButton = () => {
+  return (
+    <button type="button">
+      <NavLink to="/login" className="btn btn-primary">
+        Log In
+      </NavLink>
+    </button>
+  );
+};
+const LogoutButton = () => {
+  return (
+    <button
+      className="btn btn-danger btn-block"
+      onClick={() => logout({
+        returnTo: window.location.origin,
+      })}
+    >
+      Log Out
+    </button>
+  );
+};
+
+const DeleteButton = () => {
+  const dispatch = useDispatch();
+  return(
+      <button className="btn btn-danger btn-block" onClick={() =>dispatch(deleteInstrument(11))}>
+       Delete Instrument
+      </button>
+  );
+};
+
+const AuthenticationButton = (props) => {
+  // const [isAuthenticated, setAuthenticated] = useState(false);
+  const { isAuthenticated } = props;
+  if (isAuthenticated === false) {
+    return (
+      <>
+        <LoginButton />
+        <SignUpButton />
+      </>
+    );
+  }
+  return <LogoutButton />;
+};
+
+const NavBar = () => {
+  const isAuthenticated = useToken();
+  return (
+      <div className="nav-side-bar">
     <div className="container-fluid">
       <div className="row flex-nowrap">
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -56,12 +122,8 @@ const NavBar = () => (
                 <span className="fs-5 d-none d-sm-inline ms-4 fw-bold">DELETE Instrument</span>
               </NavLink>
             </div>
-
-            <div className="container-fluid nav-link mt-2 ms-4">
-              <button type="button" className="btn btn-danger">
-                Logout
-              </button>
-            </div>
+            <AuthenticationButton isAuthenticated={isAuthenticated} />
+            <DeleteButton />
           </div>
           <div className="container-fluid mb-5 mt-5 me-5">
             <div className="d-flex justify-content-between me-3 ms-3">
@@ -90,4 +152,5 @@ const NavBar = () => (
     </div>
   </div>
 );
+};
 export default NavBar;

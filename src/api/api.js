@@ -55,10 +55,14 @@ export const logout = async (dispatch, type) => {
   const token = localStorage.getItem('token');
   await baseApi.delete('/auth/logout', {
     headers: {
+      'Content-Type': 'application/json',
       Authorization: `${token}`,
     },
   });
-  dispatch({ type });
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  // TODO dispatch action here to trigger rendering of DOM
+  // dispatch({ type });
 };
 
 // export const addInstrument = async (newinstrument) => {
@@ -85,8 +89,14 @@ export const addInstrument = (newinstrument) => async (dispatch) => {
 // delete instrument
 export const deleteInstrument = (id) => async (dispatch) => {
   try {
-    const instrumentId = { instrument: deletId };
-    const response = await baseApi.delete('/instruments/id', instrumentId);
+    const token = localStorage.getItem('token');
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    };
+    const response = await baseApi.delete(`/instruments/${id}`, config);
     const deleteInstrument = response.data;
     return { deleteInstrument };
   } catch (error) {
