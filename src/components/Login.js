@@ -54,7 +54,7 @@ const Login = () => {
           {passwordError && <div>{passwordError}</div>}
         </div>
         <button type="submit" className="btn btn-primary mt-2">
-          Submit
+          Login
         </button>
         <p className="text-muted"> Don't have an account?</p>
         <NavLink to="/signup" className="btn btn-primary">
