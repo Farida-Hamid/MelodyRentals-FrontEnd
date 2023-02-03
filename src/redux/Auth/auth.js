@@ -27,7 +27,7 @@ const authReducer = (state = initialState, action) => {
     case LOGOUT:
       return {
         ...state,
-        isAuthenticated: false,
+        isAuthenticated: null,
         loading: false,
       };
     case REGISTER_SUCCESS:
@@ -93,4 +93,5 @@ export const userRegister = (user) => (dispatch) => {
 
 export const logoutUser = () => (dispatch) => {
   logout(dispatch, LOGOUT);
+  dispatch({type:LOGOUT});
 };

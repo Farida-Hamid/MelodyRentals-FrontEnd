@@ -1,6 +1,22 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import { useLocation, Link } from 'react-router-dom';
+import {useLocation, Link, useNavigate} from 'react-router-dom';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteInstrument } from '../api/api';
+
+const DeleteButton = (props) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  if (user !== null && user.role === 'admin') {
+    return (
+        <button className="btn btn-danger btn-block" onClick={() => dispatch(deleteInstrument(props.id, navigate))}>
+          Delete Instrument
+        </button>
+    );
+  }
+  return <></>;
+};
 
 const Details = () => {
   const location = useLocation();
@@ -23,9 +39,7 @@ const Details = () => {
           Price/day:
           {instrument.price}$
         </p>
-        <Link to="/login">
-          <div>Reserve</div>
-        </Link>
+        <DeleteButton id={instrument.id} />
       </div>
     </div>
   );

@@ -24,6 +24,11 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
 
+  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
+  <img src="./img.png" alt="logo" width="200"  height="auto" />
+  <br/>
+
+
   <img src="./IMG_4089.png" alt="logo" width="140"  height="auto" />
   <br/>
 
@@ -63,7 +68,9 @@ After you're finished please remove all the comments and instructions!
 # 📖 MelodyRentals Frontend <a name="about-project"></a>
 ![Melody Rentals-logo](./IMG_4089.png)
 
-**Melody Rentals Frontend** is a musicial  instruments rental application where the user can register new accounts, login and reserve a set of different instruments. It is built and connected by using two different repos, including Back-end(Rails) and Front-end(React/Redux).
+
+** Melody Rentals ** is a musicial instruments rental application where the user can register new accounts, login and reserve a set of different instruments. It is built and connected by using two different repos, including Back-end(Rails) and Front-end(React/Redux).
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -79,7 +86,10 @@ After you're finished please remove all the comments and instructions!
 <details>
   <summary>Server</summary>
   <ul>
-    <li>Rails</li>
+
+   <li>Rails</li>
+   <li><a href="https://expressjs.com/">Rails s</a></li>
+
   </ul>
 </details>
 

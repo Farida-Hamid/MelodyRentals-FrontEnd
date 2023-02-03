@@ -6,59 +6,51 @@ import {
 import Logo from '../img/Logos.png';
 import useToken from '../../redux/Auth/useToken';
 import {deleteInstrument, logout} from '../../api/api';
-import {useSelector} from "react-redux";
-import{useDispatch} from "react-redux";
-
+import {useSelector,useDispatch} from "react-redux";
+import {logoutUser} from "../../redux/Auth/auth";
 const SignUpButton = () => {
   return (
-    <button
+      <NavLink to="/signup">
+      <button
       className="btn btn-primary btn-block"
       onClick={() => loginWithRedirect({
         screen_hint: 'signup',
       })}
     >
-      <NavLink to="/signup">
       Sign Up
-      </NavLink>
     </button>
+</NavLink>
   );
 };
 
 const LoginButton = () => {
   return (
-    <button type="button">
       <NavLink to="/login" className="btn btn-primary">
+      <button>
         Log In
-      </NavLink>
     </button>
+      </NavLink>
+
   );
 };
 const LogoutButton = () => {
+  const dispatch = useDispatch();
   return (
     <button
       className="btn btn-danger btn-block"
-      onClick={() => logout({
-        returnTo: window.location.origin,
-      })}
+      onClick={()=>dispatch(logoutUser())}
     >
       Log Out
     </button>
   );
 };
 
-const DeleteButton = () => {
-  const dispatch = useDispatch();
-  return(
-      <button className="btn btn-danger btn-block" onClick={() =>dispatch(deleteInstrument(11))}>
-       Delete Instrument
-      </button>
-  );
-};
 
 const AuthenticationButton = (props) => {
   // const [isAuthenticated, setAuthenticated] = useState(false);
-  const { isAuthenticated } = props;
-  if (isAuthenticated === false) {
+  // const { isAuthenticated } = props;
+  const {isAuthenticated} = useSelector(state => state.auth);
+  if (isAuthenticated === null) {
     return (
       <>
         <LoginButton />
@@ -123,7 +115,6 @@ const NavBar = () => {
               </NavLink>
             </div>
             <AuthenticationButton isAuthenticated={isAuthenticated} />
-            <DeleteButton />
           </div>
           <div className="container-fluid mb-5 mt-5 me-5">
             <div className="d-flex justify-content-between me-3 ms-3">
