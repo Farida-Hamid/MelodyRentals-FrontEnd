@@ -23,11 +23,9 @@ After you're finished please remove all the comments and instructions!
 -->
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
 
-  <h3><b>Microverse README Template</b></h3>
+  <img src="./IMG_4089.png" alt="logo" width="140"  height="auto" />
+  <br/>
 
 </div>
 
@@ -36,10 +34,15 @@ After you're finished please remove all the comments and instructions!
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
+  - [<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/whatsapp/326/toolbox_1f9f0.png" width="20" height="20"/> Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [Website Mockup 📱 💻 🖥️](#screenshots)
+    - [<img src="https://uxwing.com/wp-content/themes/uxwing/download/ brands-and-social-media/ruby-on-rails-icon.png" width="23" height="20"/> Rails Backend](#rails-backend)
+    - [<img src="https://user-images.githubusercontent.com/101523582/215735670-fbaca35e-fb40-4002-8a64-6a1a6ff66120.png" width="23" height="20"/> Kanban Board](#kanban-board)
+    
   - [🚀 Live Demo](#live-demo)
+  
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -57,17 +60,14 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 MelodyRentals Frontend <a name="about-project"></a>
+![Melody Rentals-logo](./IMG_4089.png)
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**Melody Rentals Frontend** is a musicial  instruments rental application where the user can register new accounts, login and reserve a set of different instruments. It is built and connected by using two different repos, including Back-end(Rails) and Front-end(React/Redux).
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
@@ -79,7 +79,7 @@ After you're finished please remove all the comments and instructions!
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li>Rails</li>
   </ul>
 </details>
 
@@ -94,137 +94,116 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+- **[Musical Instrumetns Page Display]**
+- **[Reservations For Musical Instruments]**
+- **[Login and Registration Page ]**
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+## Website Mockup 📱 💻 🖥️ <a name="screenshots"></a>
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Kanban Board -->
+## <img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board <a name="kanban-board"></a>
+
+- We are a **group of 5 people**, So we have devided each task for track of the project.
+###  Kanban Board
+ - [Kanban Board ](https://github.com/users/Farida-Hamid/projects/11)
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- Backend Repo -->
+## <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ruby-on-rails-icon.png" width="23" height="20"/> Rails Backend <a name="rails-backend"></a>
+- Here is the Backend part of the project [MelodyRentals Backend](https://github.com/Farida-Hamid/MelodyRentals-BackEnd)
+
+
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo :rocket:]() :smiley:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
-
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
-Example command:
+In order to run this project you need:
+`Git` and `Node.js` installed on your computer.
 
-```sh
- gem install rails
-```
- -->
+- For windows users you can download Git from here: https://git-scm.com/download/win and Node.js from here: https://nodejs.org/en/download/
+- For Mac users you can download Git from here: https://git-scm.com/download/mac and Node.js from here: https://nodejs.org/en/download/
+- For Linux users you can download Git from here: https://git-scm.com/download/linux and Node.js from here: https://nodejs.org/en/download/
 
-### Setup
-
-Clone this repository to your desired folder:
-
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
-```
---->
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
 ```sh
-  cd my-project
-  gem install
+  npm install
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+   npm start # for running the project in development mode
+   npm run build # for building the project for production
 ```
---->
 
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
+Run tests
 ```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
+  npm test  # for running the tests
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Authors (5 Micronauts) <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Farida Hamid**
 
-👤 **Author1**
+- LinkedIn: [LinkedIn](https://linkedin.com/in/farida-hamid)
+- GitHub: [@Farida-Hamid](https://github.com/Farida-Hamid)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-👤 **Author2**
+👤 **Megha Bodke**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@megha-n-bodke](https://github.com/megha-n-bodke)
+- LinkedIn: [Megha Bodke](https://www.linkedin.com/in/megha-bodke/)
+
+
+👤 **Tracy Musongole**
+
+- GitHub: [@TracyMuso](https://github.com/TracyMuso)
+- LinkedIn: [Tracy Musongole](https://www.linkedin.com/in/tracy-muso/)
+
+
+👤**Elie Harfouche**
+
+- GitHub: [@X-Elie-X](https://github.com/X-Elie-X)
+- LinkedIn: [Elie Harfouche](https://www.linkedin.com/in/elie-m-harfouche/)
+
+👤 **Bantealem Geto**
+- GitHub: [Bantealem](https://github.com/Bantealem)
+- Twitter: [Bantealem](https://twitter.com/BantealemG)
+- LinkedIn: [Bantealem](https://www.linkedin.com/in/bantealem-geto-a301b9213/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,7 +213,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Farida-Hamid/MelodyRentals-FrontEnd/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -242,9 +221,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+Give a ⭐️ if you like this project!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -252,9 +229,10 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
+I would like to thank:
+- [Microverse](https://www.microverse.org/)
+- Code Reviewers
 
-I would like to thank...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -262,21 +240,22 @@ I would like to thank...
 
 ## ❓ FAQ <a name="faq"></a>
 
-> Add at least 2 questions new developers would ask when they decide to use your project.
+- **How I can install vite?**
 
-- **[Question_1]**
+  - You can install vite by running `npm install -g vite` in your terminal.
 
-  - [Answer_1]
+- **How I can run this project?**
 
-- **[Question_2]**
+  - After cloning repository, run `npm install` to install all dependencies. Then run `npm start` to run the project.
 
-  - [Answer_2]
+- **How I can run tests?**
+  
+    - After cloning repository, run `npm install` to install all dependencies. Then run `npm test` to run the tests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
-## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 
