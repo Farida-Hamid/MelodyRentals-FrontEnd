@@ -31,36 +31,49 @@ const Login = () => {
   };
 
   return (
-    <div className=" homepage">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label className="form-label">Username:</label>
-          <br />
-          <input
-            type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-          {usernameError && <div>{usernameError}</div>}
+    <div className="homepage d-flex w-100 justify-content-center">
+      <div className="card">
+        <div className="card-header">Login</div>
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label className="form-label">Username:</label>
+              <br />
+              <input
+                type="text"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+                className="form-control"
+              />
+              {usernameError && (
+                <small className="text-danger">{usernameError}</small>
+              )}
+            </div>
+            <div>
+              <label className="form-label">Password:</label>
+              <br />
+              <input
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                className="form-control"
+              />
+              {passwordError && (
+                <small className="text-danger">{passwordError}</small>
+              )}
+            </div>
+            <button type="submit" className="btn btn-primary mt-2">
+              Login
+            </button>
+          </form>
         </div>
-        <div>
-          <label className="form-label">Password:</label>
-          <br />
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-          {passwordError && <div>{passwordError}</div>}
+        <div className="card-footer d-flex gap-1">
+          <p className="text-muted"> Don't have an account?</p>
+          <NavLink to="/signup" className="nav-link text-primary">
+            Sign up
+          </NavLink>
         </div>
-        <button type="submit" className="btn btn-primary mt-2">
-          Login
-        </button>
-        <p className="text-muted"> Don't have an account?</p>
-        <NavLink to="/signup" className="btn btn-primary">
-          Sign up
-        </NavLink>
-      </form>
+      </div>
     </div>
   );
 };
