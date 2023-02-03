@@ -11,26 +11,27 @@ import{useDispatch} from "react-redux";
 
 const SignUpButton = () => {
   return (
-    <button
+      <NavLink to="/signup">
+      <button
       className="btn btn-primary btn-block"
       onClick={() => loginWithRedirect({
         screen_hint: 'signup',
       })}
     >
-      <NavLink to="/signup">
       Sign Up
-      </NavLink>
     </button>
+</NavLink>
   );
 };
 
 const LoginButton = () => {
   return (
-    <button type="button">
       <NavLink to="/login" className="btn btn-primary">
+      <button>
         Log In
-      </NavLink>
     </button>
+      </NavLink>
+
   );
 };
 const LogoutButton = () => {
@@ -46,14 +47,6 @@ const LogoutButton = () => {
   );
 };
 
-const DeleteButton = () => {
-  const dispatch = useDispatch();
-  return(
-      <button className="btn btn-danger btn-block" onClick={() =>dispatch(deleteInstrument(11))}>
-       Delete Instrument
-      </button>
-  );
-};
 
 const AuthenticationButton = (props) => {
   // const [isAuthenticated, setAuthenticated] = useState(false);
@@ -123,7 +116,6 @@ const NavBar = () => {
               </NavLink>
             </div>
             <AuthenticationButton isAuthenticated={isAuthenticated} />
-            <DeleteButton />
           </div>
           <div className="container-fluid mb-5 mt-5 me-5">
             <div className="d-flex justify-content-between me-3 ms-3">

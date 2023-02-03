@@ -1,6 +1,17 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { useLocation, Link } from 'react-router-dom';
 import React from 'react';
+import {useDispatch} from "react-redux";
+import {deleteInstrument} from "../api/api";
+
+const DeleteButton = (props) => {
+  const dispatch = useDispatch();
+  return (
+    <button className="btn btn-danger btn-block" onClick={() => dispatch(deleteInstrument(props.id))}>
+        Delete Instrument
+    </button>
+  );
+};
 
 const Details = () => {
   const location = useLocation();
@@ -26,6 +37,7 @@ const Details = () => {
         <Link to="/login">
           <div>Reserve</div>
         </Link>
+        <DeleteButton id={instrument.id} />
       </div>
     </div>
   );
