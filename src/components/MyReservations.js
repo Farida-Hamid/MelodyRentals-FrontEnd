@@ -1,47 +1,33 @@
 import React from 'react';
-import axios from 'axios';
 import {useEffect} from 'react';
+import { recieveReservations } from '../redux/reservations';
 // import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const MyReservations = () => {
-useEffect(() => {
-  // setLoading(true);
-  const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
+  const reslist = useSelector((state) => state.myreservations);
+  const dispatch = useDispatch();
 
-//   axios
-//     .get(
-//       `http://127.0.0.1:3000/api/v1/reservations`,
-//       token
-//     )
-//     .then((response) => {
-//       console.log("res of instruments is", response);
-//     });
-// }, []);
-
-  axios.post('http://127.0.0.1:3000/api/v1/reservations', token, user)
-.then((response) => {
-  // const token = response;
-  // set JWT token to local
-  console.log(response)
-  // window.location.href = '/'
-})
-.catch((err) => console.log(err));
- }, []);
-
+  useEffect(() => {
+    recieveReservations(dispatch);
+  }, [])
+  console.log(reslist)
 
   return (
-  <h1>my reservations</h1>
-  // <div className="card border-light">
-  //   <div className="card-body">
-  //     <Link to="/details/{id}" state={{ instrument }}>
-  //       <h2 className="card-title text-center text-decoration-none">{instrument.name}</h2>
-  //     </Link>
-  //     <p className="text-muted fw-bold text-center">.........</p>
-  //     <p className="card-text card-desc ">{instrument.description}</p>
-  //   </div>
-  //   <img src={instrument.image} alt={instrument.name} />
-  // </div>
+    <div>
+  <h1 className="text-center">my reservations</h1>
+
+  {reslist.map((instrument) => (
+  <div className="card border-light">
+  <h2 className="card-title text-center text-decoration-none">reservation_id: {instrument.id}</h2>
+    <h2 className="card-title text-center text-decoration-none">instrument_id: {instrument.instrument_id}</h2>
+    <h2 className="card-title text-center text-decoration-none">pickup_date: {instrument.pickup_date}</h2>
+    <h2 className="card-title text-center text-decoration-none">return_date: {instrument.return_date}</h2>
+    <h2 className="card-title text-center text-decoration-none">user_id: {instrument.user_id}</h2>
+      <p className="text-muted fw-bold text-center">.........</p>
+  </div>        ))}
+  </div>
 )};
 
 // MyReservations.propTypes = {

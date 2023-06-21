@@ -1,5 +1,4 @@
 import { login, logout, signup } from '../../api/api';
-import {useSelector} from "react-redux";
 
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -27,7 +26,7 @@ const authReducer = (state = initialState, action) => {
     case LOGOUT:
       return {
         ...state,
-        isAuthenticated: null,
+        isAuthenticated: false,
         loading: false,
       };
     case REGISTER_SUCCESS:
@@ -61,9 +60,10 @@ export const userLogin = (email, password, navigate) => async (dispatch) => {
       password,
     };
     const response = login(user);
+    console.log('at redux response is',response);
     localStorage.setItem('token', (await response).authToken);
-    localStorage.setItem('user', JSON.stringify((await response).currentUser));
-    dispatch(setCurrentUser(response));
+    localStorage.setItem('user', (await response).currentUser);
+    dispatch(setCurrentUser(response.currentUser));
     navigate('/');
   } catch (err) {
     // TODO
@@ -93,5 +93,4 @@ export const userRegister = (user) => (dispatch) => {
 
 export const logoutUser = () => (dispatch) => {
   logout(dispatch, LOGOUT);
-  dispatch({type:LOGOUT});
 };
