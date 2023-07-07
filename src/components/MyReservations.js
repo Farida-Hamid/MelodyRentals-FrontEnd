@@ -12,7 +12,6 @@ const MyReservations = () => {
   useEffect(() => {
     recieveReservations(dispatch);
   }, [])
-  console.log(reslist)
 
   return (
     <div>

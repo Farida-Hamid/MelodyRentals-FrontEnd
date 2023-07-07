@@ -60,7 +60,6 @@ export const userLogin = (email, password, navigate) => async (dispatch) => {
       password,
     };
     const response = login(user);
-    console.log('at redux response is',response);
     localStorage.setItem('token', (await response).authToken);
     localStorage.setItem('user', (await response).currentUser);
     dispatch(setCurrentUser(response.currentUser));
